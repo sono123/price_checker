@@ -70,6 +70,14 @@ class User < ActiveRecord::Base
 		reset_sent_at < 2.hours.ago
 	end
 
+	# Sends an email to the admin about a new user.
+	def send_admin_request
+		admins = User.where(admin: true)
+		admins.each do |admin|
+			UserMailer.admin_request(admin, self).deliver_now
+		end
+	end
+
 	private
 
 		# Converts email to all lower-case.

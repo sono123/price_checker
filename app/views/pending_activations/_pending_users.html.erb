@@ -1,0 +1,5 @@
+<li>
+	<%= gravatar_for user, size: 50 %>
+	<span><%= user.name %> | <%= link_to "Approve", user, method: :delete, data: { confirm: "You Sure?" } %> </span>
+</li>
+

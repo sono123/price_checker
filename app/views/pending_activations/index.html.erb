@@ -1,0 +1,19 @@
+<% provide(:title, 'Pending Activations') %>
+
+<h1>Pending Activations</h1>
+
+
+<% if @pending_activations.nil? %>
+
+	<h3>There are no Pending Users</h3>
+	
+<% else %>
+
+	<ul class="users">
+		<% @pending_activations.each do |user| %>
+			<%= render partial: 'pending_activations/pending_users', locals: { user: user } %>
+		<% end %>
+	</ul>
+
+<% end %>
+
