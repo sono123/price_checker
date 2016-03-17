@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 	attr_accessor :remember_token, :activation_token, :reset_token
 
 	before_save :downcase_email
-	before_create :create_activation_digest
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :name, presence: true, length: { maximum: 50 }
@@ -19,9 +18,14 @@ class User < ActiveRecord::Base
 		BCrypt::Password.create(string, cost: cost)
 	end
 
-	# Returns a random token.
+	# Class method for a random token.
 	def User.new_token
 		SecureRandom.urlsafe_base64
+	end
+
+	# Instance method for a random token
+	def new_token
+		User.new_token
 	end
 
 	# Remembers a user in the database for use in persistent sessions.
@@ -50,6 +54,7 @@ class User < ActiveRecord::Base
 
 	# Sends an activation email.
 	def send_activation_email
+		create_activation_digest
 		UserMailer.account_activation(self).deliver_now
 	end
 
@@ -89,19 +94,10 @@ class User < ActiveRecord::Base
 		def create_activation_digest
 			self.activation_token = User.new_token
 			self.activation_digest = User.digest(activation_token)
+			update_attribute(:activation_digest, User.digest(activation_token))
 		end
 
 end
-
-
-
-
-
-
-
-
-
-
 
 
 

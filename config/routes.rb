@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-  resources :pending_activations, only: [:index]
+  resources :pending_activations, only: [:index, :edit]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 end

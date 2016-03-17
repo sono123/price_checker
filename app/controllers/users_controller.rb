@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   	if @user.save
       @user.send_admin_request
       flash[:info] = "Your registration is awaiting admin approval. You will receive an email with 24 hours."
-      # @user.send_activation_email
-      # flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
   	else
   		render 'new'

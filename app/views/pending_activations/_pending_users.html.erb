@@ -1,5 +1,5 @@
 <li>
 	<%= gravatar_for user, size: 50 %>
-	<span><%= user.name %> | <%= link_to "Approve", user, method: :delete, data: { confirm: "You Sure?" } %> </span>
+	<span><%= user.name %> | <%= link_to "Approve", edit_pending_activation_path(user), data: { confirm: "You Sure?" } %> </span>
 </li>
 
