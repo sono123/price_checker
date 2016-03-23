@@ -1,0 +1,25 @@
+<%= form_for(@coating) do |f| %>
+  <% if @coating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coating.errors.count, "error") %> prohibited this coating from being saved:</h2>
+
+      <ul>
+      <% @coating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :front %><br>
+    <%= f.text_field :front %>
+  </div>
+  <div class="field">
+    <%= f.label :back %><br>
+    <%= f.text_field :back %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

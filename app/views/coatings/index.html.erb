@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Coatings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Front</th>
+      <th>Back</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coatings.each do |coating| %>
+      <tr>
+        <td><%= coating.front %></td>
+        <td><%= coating.back %></td>
+        <td><%= link_to 'Show', coating %></td>
+        <td><%= link_to 'Edit', edit_coating_path(coating) %></td>
+        <td><%= link_to 'Destroy', coating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coating', new_coating_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @paper_type.brand %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @paper_type.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @paper_type.color %>
+</p>
+
+<p>
+  <strong>Thickness:</strong>
+  <%= @paper_type.thickness %>
+</p>
+
+<%= link_to 'Edit', edit_paper_type_path(@paper_type) %> |
+<%= link_to 'Back', paper_types_path %>

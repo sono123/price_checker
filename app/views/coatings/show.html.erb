@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Front:</strong>
+  <%= @coating.front %>
+</p>
+
+<p>
+  <strong>Back:</strong>
+  <%= @coating.back %>
+</p>
+
+<%= link_to 'Edit', edit_coating_path(@coating) %> |
+<%= link_to 'Back', coatings_path %>
