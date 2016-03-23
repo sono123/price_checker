@@ -1,74 +1,94 @@
 class BusinessCardsController < ApplicationController
-  before_action :set_business_card, only: [:show, :edit, :update, :destroy]
 
-  # GET /business_cards
-  # GET /business_cards.json
-  def index
-    @business_cards = BusinessCard.all
-  end
-
-  # GET /business_cards/1
-  # GET /business_cards/1.json
-  def show
-  end
-
-  # GET /business_cards/new
-  def new
-    @business_card = BusinessCard.new
-  end
-
-  # GET /business_cards/1/edit
-  def edit
-  end
-
-  # POST /business_cards
-  # POST /business_cards.json
   def create
-    @business_card = BusinessCard.new(business_card_params)
+    search = BusinessCard.search(params["business_card"])
+    @result = search[0]
 
-    respond_to do |format|
+    if @result
+      flash[:error] = "That item is already in the system."
+      redirect_to root_path
+    else
+      @business_card = BusinessCard.new(business_card_params)
       if @business_card.save
-        format.html { redirect_to @business_card, notice: 'Business card was successfully created.' }
-        format.json { render :show, status: :created, location: @business_card }
+        flash[:success] = "Price successfully added."
+        redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @business_card.errors, status: :unprocessable_entity }
+        flash[:error] = "Business card could not be added."
+        redirect_to root_path
       end
     end
   end
 
-  # PATCH/PUT /business_cards/1
-  # PATCH/PUT /business_cards/1.json
+  def edit
+    @business_card = BusinessCard.find(params[:id])
+  end
+
   def update
-    respond_to do |format|
-      if @business_card.update(business_card_params)
-        format.html { redirect_to @business_card, notice: 'Business card was successfully updated.' }
-        format.json { render :show, status: :ok, location: @business_card }
+    @business_card = BusinessCard.find(params[:id])
+    @business_card.update_attributes("price" => params[:business_card][:price], "cost" => params[:business_card][:cost])
+    flash[:success] = "Price successfully updated."
+    redirect_to root_path
+  end
+
+  def search
+    search = BusinessCard.search(params)
+    result = search[0]
+
+    if result
+      @price = result.price.to_s
+      @cost = result.cost.to_s
+      @id = result.id.to_s
+      render :template => 'static_pages/search'
+    else
+      similar = BusinessCard.similar_products(params)
+
+      if similar
+        @similar = similar.map {|obj| obj[0]}[0..4].to_s
+        @count = similar.count
       else
-        format.html { render :edit }
-        format.json { render json: @business_card.errors, status: :unprocessable_entity }
+        @count = 0
       end
+
+      render :template => 'static_pages/new_bc'
     end
   end
 
-  # DELETE /business_cards/1
-  # DELETE /business_cards/1.json
-  def destroy
-    @business_card.destroy
-    respond_to do |format|
-      format.html { redirect_to business_cards_url, notice: 'Business card was successfully destroyed.' }
-      format.json { head :no_content }
+  def more
+    similar = BusinessCard.similar_products(params)
+    index = params[:index].to_i - 1
+
+    if similar
+      similar_indexes = similar.map {|obj| obj[0]}
+      similar_indexes.slice!(0..index)
+      @load_more = similar_indexes[0..4].to_s
+      @count = similar_indexes.count
     end
+
+    render :template => 'main/load_more'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_business_card
-      @business_card = BusinessCard.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def business_card_params
-      params.fetch(:business_card, {})
+      params.require(:business_card).permit(:print_method_id, 
+                                          :ink_color_id, 
+                                          :bleed_id, 
+                                          :raised_ink_id, 
+                                          :dimension_id, 
+                                          :paper_type_id, 
+                                          :coating_id, 
+                                          :quantity_id,
+                                          :box_count_id,
+                                          :metal_id,
+                                          :price,
+                                          :cost)
     end
 end
+
+
+
+
+
+
+
+
