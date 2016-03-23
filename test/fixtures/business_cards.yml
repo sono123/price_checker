@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  cost: 1
+  print_method_id: 
+  ink_color_id: 
+  bleed_id: 
+  raised_ink_id: 
+  dimension_id: 
+  paper_type_id: 
+  coating_id: 
+  quantity_id: 
+  box_count_id: 
+  metal_id: 
+
+two:
+  price: 1
+  cost: 1
+  print_method_id: 
+  ink_color_id: 
+  bleed_id: 
+  raised_ink_id: 
+  dimension_id: 
+  paper_type_id: 
+  coating_id: 
+  quantity_id: 
+  box_count_id: 
+  metal_id: 
