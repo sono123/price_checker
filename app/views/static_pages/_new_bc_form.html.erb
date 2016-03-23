@@ -1,0 +1,89 @@
+<%= form_for(@business_card, :url => business_cards_path, :html => {method: :post}) do |b| %>
+
+	<div class="form-group">
+		<%= b.label 'print_method' %>
+		<%= b.select 'print_method_id', options_for_select(print_methods), {}, {"ng-model" => "data.print_method_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'ink_colors' %>
+		<%= b.select 'ink_color_id', options_for_select(ink_colors), {}, {"ng-model" => "data.ink_color_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'bleeds' %>
+		<%= b.select 'bleed_id', options_for_select(bleeds), {}, {"ng-model" => "data.bleed_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'raised_inks' %>
+		<%= b.select 'raised_ink_id', options_for_select(raised_inks), {}, {"ng-model" => "data.raised_ink_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'dimensions' %><a class="edit-menu" href="/dimensions">Edit</a>
+		<%= b.select 'dimension_id', options_for_select(dimensions), {}, {"ng-model" => "data.dimensions_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'paper_types' %><a class="edit-menu" href="/paper_types">Edit</a>
+		<%= b.select 'paper_type_id', options_for_select(paper_types), {}, {"ng-model" => "data.paper_type_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'coatings' %><a class="edit-menu" href="/coatings">Edit</a>
+		<%= b.select 'coating_id', options_for_select(coatings), {}, {"ng-model" => "data.coating_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'quantities' %><a class="edit-menu" href="/quantities">Edit</a>
+		<%= b.select 'quantity_id', options_for_select(quantities), {}, {"ng-model" => "data.quantity_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'box_counts' %><a class="edit-menu" href="/box_counts">Edit</a>
+		<%= b.select 'box_count_id', options_for_select(box_counts), {}, {"ng-model" => "data.box_count_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'metals' %><a class="edit-menu" href="/metals">Edit</a>
+		<%= b.select 'metal_id', options_for_select(metals), {}, {"ng-model" => "data.metal_id", "class" => "form-control"} %>
+	</div>
+
+	<br>
+
+	<% unless @result %>
+		<h4 class="error text-center"><%= "That price is not in the system." %></h4>
+	<% end %>
+
+	<br>
+
+	<div class="form-group">
+		<%= b.label 'price' %>
+		<%= b.text_field :price, class: "new-bc-price form-control", value: "Add Price", onfocus: "if (this.value=='Add Price') this.value='';", onblur: "if (this.value=='') this.value='Add Price';" %>
+	</div>
+
+	<div class="form-group">
+		<%= b.label 'cost' %>
+		<%= b.text_field :cost, class: "new-bc-cost form-control", value: "Add Cost", onfocus: "if (this.value=='Add Cost') this.value='';", onblur: "if (this.value=='') this.value='Add Cost';" %>
+	</div>
+
+	<br>
+
+	<%= b.submit 'Submit', class: "btn btn-primary btn-block" %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,8 +19,19 @@ Rails.application.routes.draw do
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  get 'search'    => 'business_cards#search'
+  get 'more'      => 'business_cards#more'
+
   resources :users
   resources :pending_activations, only: [:index, :edit]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  resources :business_cards, only: [:create, :edit, :update]
+  resources :box_counts
+  resources :dimensions
+  resources :paper_types
+  resources :coatings
+  resources :quantities
+  resources :metals
 end

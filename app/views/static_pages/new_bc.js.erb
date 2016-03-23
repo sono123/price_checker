@@ -1,0 +1,21 @@
+$('.search-form').addClass("hide");
+$('.new-bc-form').removeClass("hide");
+$('.similar-products').replaceWith("<%= j similar_products( @similar ) %>");
+
+if ( parseInt("<%= @count %>") < 5) {
+	$('.load-more').addClass("hide");
+} else {
+	$('.load-more').removeClass("hide");
+};
+
+$('.more').submit(function(){
+	var last_id = $('.index').last().attr('data-id');
+	$('.index-field').val(last_id)
+	console.log(last_id);
+});
+
+console.log(<%= @count %>);
+
+
+
+

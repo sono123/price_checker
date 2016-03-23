@@ -1,0 +1,77 @@
+<%= form_tag('more', :method => "get", :remote => true, :class => "load-more more hide") do %>
+
+	<div class="form-group hide">
+		<%= label_tag 'print_method' %>
+		<%= select_tag 'print_method_id', options_for_select(print_methods), {"ng-model" => "data.print_method_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'ink_colors' %>
+		<%= select_tag 'ink_color_id', options_for_select(ink_colors), {"ng-model" => "data.ink_color_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'bleeds' %>
+		<%= select_tag 'bleed_id', options_for_select(bleeds), {"ng-model" => "data.bleed_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'raised_inks' %>
+		<%= select_tag 'raised_ink_id', options_for_select(raised_inks), {"ng-model" => "data.raised_ink_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'dimensions' %><a class="edit-menu" href="/dimensions">Edit</a>
+		<%= select_tag 'dimension_id', options_for_select(dimensions), {"ng-model" => "data.dimensions_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'paper_types' %><a class="edit-menu" href="/paper_types">Edit</a>
+		<%= select_tag 'paper_type_id', options_for_select(paper_types), {"ng-model" => "data.paper_type_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'coatings' %><a class="edit-menu" href="/coatings">Edit</a>
+		<%= select_tag 'coating_id', options_for_select(coatings), {"ng-model" => "data.coating_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'quantities' %><a class="edit-menu" href="/quantities">Edit</a>
+		<%= select_tag 'quantity_id', options_for_select(quantities), {"ng-model" => "data.quantity_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'box_counts' %><a class="edit-menu" href="/box_counts">Edit</a>
+		<%= select_tag 'box_count_id', options_for_select(box_counts), {"ng-model" => "data.box_count_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= label_tag 'metals' %><a class="edit-menu" href="/metals">Edit</a>
+		<%= select_tag 'metal_id', options_for_select(metals), {"ng-model" => "data.metal_id", "class" => "form-control"} %>
+	</div>
+
+	<div class="form-group hide">
+		<%= text_field_tag :index, nil, class: "index-field form-control index-field" %>
+	</div>
+
+	<br>
+
+	<%= submit_tag 'Load More', class: "btn btn-primary btn-block" %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
