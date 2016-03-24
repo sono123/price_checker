@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'search'    => 'business_cards#search'
   get 'more'      => 'business_cards#more'
+  delete 'business_cards/:id' => 'business_cards#destroy'
 
   resources :users
   resources :pending_activations, only: [:index, :edit]

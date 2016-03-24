@@ -67,6 +67,12 @@ class BusinessCardsController < ApplicationController
     render :template => 'main/load_more'
   end
 
+  def destroy
+    BusinessCard.find(params[:id]).destroy
+    flash[:success] = "User Deleted"
+    redirect_to root_path
+  end
+
   private
 
     def business_card_params
