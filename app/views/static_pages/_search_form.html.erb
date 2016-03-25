@@ -1,53 +1,55 @@
 <%= form_tag('/search', :method => "get", :remote => true, :class => "search") do %>
 
-	<div class="form-group">
+	<div class="form-group search-form-group">
 		<%= label_tag 'print_method' %>
-		<%= select_tag 'print_method_id', options_for_select(print_methods), {"ng-model" => "data.print_method_id", "class" => "form-control"} %>
+		<%= select_tag 'print_method_id', options_for_select(print_methods), {"ng-model" => "data.print_method_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group search-form-group">
 		<%= label_tag 'ink_colors' %>
-		<%= select_tag 'ink_color_id', options_for_select(ink_colors), {"ng-model" => "data.ink_color_id", "class" => "form-control"} %>
+		<%= select_tag 'ink_color_id', options_for_select(ink_colors), {"ng-model" => "data.ink_color_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group search-form-group">
 		<%= label_tag 'bleeds' %>
-		<%= select_tag 'bleed_id', options_for_select(bleeds), {"ng-model" => "data.bleed_id", "class" => "form-control"} %>
+		<%= select_tag 'bleed_id', options_for_select(bleeds), {"ng-model" => "data.bleed_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group search-form-group">
 		<%= label_tag 'raised_inks' %>
-		<%= select_tag 'raised_ink_id', options_for_select(raised_inks), {"ng-model" => "data.raised_ink_id", "class" => "form-control"} %>
+		<%= select_tag 'raised_ink_id', options_for_select(raised_inks), {"ng-model" => "data.raised_ink_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'dimensions' %><a class="edit-menu" href="/dimensions">Edit</a>
-		<%= select_tag 'dimension_id', options_for_select(dimensions), {"ng-model" => "data.dimensions_id", "class" => "form-control"} %>
+	<div class="form-group search-form-group">
+		<%= label_tag 'dimensions' %><a class="edit-menu" href="/dimensions"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'dimension_id', options_for_select(dimensions), {"ng-model" => "data.dimensions_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'paper_types' %><a class="edit-menu" href="/paper_types">Edit</a>
-		<%= select_tag 'paper_type_id', options_for_select(paper_types), {"ng-model" => "data.paper_type_id", "class" => "form-control"} %>
+	<!-- 'dir' => 'rtl' -->
+
+	<div class="form-group search-form-group">
+		<%= label_tag 'coatings' %><a class="edit-menu" href="/coatings"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'coating_id', options_for_select(coatings), {"ng-model" => "data.coating_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'coatings' %><a class="edit-menu" href="/coatings">Edit</a>
-		<%= select_tag 'coating_id', options_for_select(coatings), {"ng-model" => "data.coating_id", "class" => "form-control"} %>
+	<div class="form-group search-form-group">
+		<%= label_tag 'quantities' %><a class="edit-menu" href="/quantities"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'quantity_id', options_for_select(quantities), {"ng-model" => "data.quantity_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'quantities' %><a class="edit-menu" href="/quantities">Edit</a>
-		<%= select_tag 'quantity_id', options_for_select(quantities), {"ng-model" => "data.quantity_id", "class" => "form-control"} %>
+	<div class="form-group search-form-group">
+		<%= label_tag 'box_counts' %><a class="edit-menu" href="/box_counts"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'box_count_id', options_for_select(box_counts), {"ng-model" => "data.box_count_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'box_counts' %><a class="edit-menu" href="/box_counts">Edit</a>
-		<%= select_tag 'box_count_id', options_for_select(box_counts), {"ng-model" => "data.box_count_id", "class" => "form-control"} %>
+	<div class="form-group search-form-group">
+		<%= label_tag 'metals' %><a class="edit-menu" href="/metals"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'metal_id', options_for_select(metals), {"ng-model" => "data.metal_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group">
-		<%= label_tag 'metals' %><a class="edit-menu" href="/metals">Edit</a>
-		<%= select_tag 'metal_id', options_for_select(metals), {"ng-model" => "data.metal_id", "class" => "form-control"} %>
+	<div class="form-group search-form-group">
+		<%= label_tag 'paper_types' %><a class="edit-menu" href="/paper_types"><i class="edit glyphicon glyphicon-plus"></i></a>
+		<%= select_tag 'paper_type_id', options_for_select(paper_types), {"ng-model" => "data.paper_type_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
 	<br>

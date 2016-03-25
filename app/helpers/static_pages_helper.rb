@@ -45,13 +45,13 @@ module StaticPagesHelper
 
 	def dimensions
 		@dimensions.map do |i|
-			[trim(i.width).to_s + " x " + trim(i.height).to_s, i.id]
+			["#{trim(i.height).to_s} / #{trim(i.width).to_s}", i.id]
 		end
 	end
 
 	def paper_types
 		@paper_types.map do |i|
-			[i.brand + " - " + i.name + " - " + i.color + " - " + i.thickness.to_s + "lb", i.id]
+			[i.name + " - " + i.color + " - " + i.thickness.to_s + "lb", i.id]
 		end
 	end
 
