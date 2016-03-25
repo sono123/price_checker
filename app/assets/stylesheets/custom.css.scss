@@ -107,6 +107,7 @@ p {
 		-webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
+    margin-right: -12px;
 	}
 
 	.form-control:focus {
@@ -126,10 +127,90 @@ p {
 	font-size: .9em;
 }
 
-.btn-primary {
+.btn-style:focus {
+	outline: 0;
+	background-color: #1abb9c;
+	color: white;
+	font-weight: bold;
+	outline: 0 !important;
+}
+
+.btn-style {
 	background: #1abb9c;
 	border: none;
 	height: 50px !important;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.btn-style:hover {
+	background: #159d82;
+	color: white;
+	font-weight: bold;
+}
+
+.btn-style:active {
+	background-color: #12876f;
+	border-color: none;
+	color: white;
+	font-weight: bold;
+	border: none;
+	outline: 0 !important;
+}
+
+.btn-style:visited {
+	background: #12876f;
+	border-color: none;
+	border: none;
+	color: white;
+	font-weight: bold;
+}
+
+#selling-price {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#selling-price i {
+	font-size: .5em;
+}
+
+#production-cost i {
+	font-size: .7em;	
+}
+
+#production-cost, #overhead, #margin {
+	margin-bottom: 25px;	
+}
+
+#margin {
+	padding-bottom: 25px;
+}
+
+.details {
+	/*visibility: hidden;*/
+}
+
+.details-button {
+	width: 100%;
+}
+
+.details-button i {
+	margin-left: 10px;
+	color: #ccc;
+}
+
+.details-line {
+	width: 95%;
+	display: inline;
+	float: left;
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+}
+
+.price, .cost, .overhead, .margin {
+	float: right;
 }
 
 

@@ -1,5 +1,5 @@
-$('.price').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'>edit</a> <span class='price'>$<%= j @price %></span>");
-$('.cost').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'>edit</a> <span class='cost'>- $<%= j @cost %></span>");
+$('.price').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'><i class='edit glyphicon glyphicon-plus'></i></a> <span class='price'>$<%= j @price %></span>");
+$('.cost').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'><i class='edit glyphicon glyphicon-plus'></i></a> <span class='cost'>- $<%= j @cost %></span>");
 $('.overhead').replaceWith("<span class='overhead'>- $<%= j overhead %></span>");
 $('.margin').replaceWith("<span class='margin'>$<%= j margin %></span>");
 console.log("<%= j @price %>");

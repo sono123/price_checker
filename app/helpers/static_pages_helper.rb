@@ -1,7 +1,7 @@
 module StaticPagesHelper
 
 	def print_methods
-		@print_methods.map{ |m| [m.print_method, m.id] }
+		@print_methods.map{ |m| [m.print_method.split.map(&:capitalize).join(' '), m.id] }
 	end
 
 	def ink_colors
@@ -51,13 +51,13 @@ module StaticPagesHelper
 
 	def paper_types
 		@paper_types.map do |i|
-			[i.name + " - " + i.color + " - " + i.thickness.to_s + "lb", i.id]
+			[i.name.split.map(&:capitalize).join(' ') + " - " + i.color.split.map(&:capitalize).join(' ') + " - " + i.thickness.to_s + "lb", i.id]
 		end
 	end
 
 	def coatings
 		@coatings.map do |i|
-			[i.front + " / " + i.back, i.id]
+			[i.front.capitalize + " / " + i.back.capitalize, i.id]
 		end
 	end
 
@@ -75,7 +75,7 @@ module StaticPagesHelper
 
 	def metals
 		@metals.map do |i|
-			[i.front + " / " + i.back, i.id]
+			[i.front.capitalize + " / " + i.back.capitalize, i.id]
 		end
 	end
 

@@ -54,33 +54,47 @@
 
 	<br>
 
-	<%= submit_tag 'Search', class: "btn btn-primary btn-block" %>
+	<%= submit_tag 'Search', class: "btn btn-style btn-block" %>
 
-	<h3>Selling Price: 
+	<h3 id="selling-price">
+		Selling Price: 
 		<span class="price-info">
-			<span class="price"></span>
+			<span class="price">$0</span>
+
 		</span>
 	</h3>
 
-	<h3>Production Cost: 
-		<span class="price-info">
-			<span class="cost"></span>
-		</span>
-	</h3>
+	<div class="details">
 
-	<h3>Overhead: 
-		<span class="price-info">
-			<span class="overhead"></span>
-		</span>
-	</h3>
+		<h4 id="production-cost">
+			Production Cost: 
+			<span class="price-info">
+				<span class="cost"></span>
+			</span>
+		</h4>
 
-	<div class="margin-line"></div>
+		<h4 id="overhead">
+			Overhead: 
+			<span class="price-info">
+				<span class="overhead"></span>
+			</span>
+		</h4>
 
-	<h3>Margin: 
-		<span class="price-info">
-			<span class="margin"></span>
-		</span>
-	</h3>
+		<div class="margin-line"></div>
+
+		<h4 id="margin">
+			Margin: 
+			<span class="price-info">
+				<span class="margin"></span>
+			</span>
+		</h4>
+
+	</div>
+
+	<div class="details-button">
+		<div class="details-line"></div>
+		<i class="glyphicon glyphicon-plus"></i>
+	</div>
 
 <% end %>
 
