@@ -133,6 +133,7 @@ p {
 	color: white;
 	font-weight: bold;
 	outline: 0 !important;
+	border-radius: 0;
 }
 
 .btn-style {
@@ -142,6 +143,7 @@ p {
 	color: white;
 	font-weight: bold;
 	text-transform: uppercase;
+	border-radius: 0;
 }
 
 .btn-style:hover {
@@ -203,6 +205,14 @@ p {
 
 .details-line {
 	width: 95%;
+	display: inline;
+	float: left;
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px;
+}
+
+.under-line {
+	width: 100%;
 	display: inline;
 	float: left;
 	border-bottom: 1px solid #ccc;

@@ -51,7 +51,7 @@ module StaticPagesHelper
 
 	def paper_types
 		@paper_types.map do |i|
-			[i.name.split.map(&:capitalize).join(' ') + " - " + i.color.split.map(&:capitalize).join(' ') + " - " + i.thickness.to_s + "lb", i.id]
+			[i.name.split.map(&:capitalize).join(' ') + " / " + i.color.split.map(&:capitalize).join(' ') + " / " + i.thickness.to_s + "lb", i.id]
 		end
 	end
 
