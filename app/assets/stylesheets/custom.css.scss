@@ -15,8 +15,19 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+.main-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
 }
 
 section {
@@ -43,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -65,6 +76,20 @@ p {
 
 /* header */
 
+.top-navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+	border-bottom: 6px solid #e6e6e6;
+	min-height: 90px;
+}
+
+#logo-img img {
+	float: left;
+	width: 50px;
+  margin-right: 10px;
+  padding-top: 14px;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -72,7 +97,7 @@ p {
   color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 24px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -80,8 +105,20 @@ p {
   }
 }
 
+.navbar-right {
+	margin-top: 15px;
+}
+
 
 /* page body */
+
+.main-header {
+	margin-bottom: 50px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.6em;
+}
 
 .page-content {
 	margin-bottom: 100px;
@@ -90,26 +127,27 @@ p {
 .search-form-group {
 	width: 100%;
 	height: 40px;
+	margin-bottom: 19px;
 	label {
 		margin-top: 7px;
 	}
 	select, option {
-		/*color: #337ab7;*/
-		/*color: #3366CC;*/
-		color: #1abb9c;
+		/*color: #337ab7;*/ /*light blue*/
+		color: #3277b3; /*darker blue*/
+		/*color: #0059b3;*/ /*dark blue*/
+		/*color: #1abb9c;*/ /*green*/
 		border: none;
 		box-shadow: none;
 		font-weight: bold;
 		cursor: pointer;
+		/*text-decoration: underline;*/
 	}
-
 	select {
 		-webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
     margin-right: -12px;
 	}
-
 	.form-control:focus {
 		border: none;
 		box-shadow: none;
@@ -129,7 +167,7 @@ p {
 
 .btn-style:focus {
 	outline: 0;
-	background-color: #1abb9c;
+	background-color: #3277b3;
 	color: white;
 	font-weight: bold;
 	outline: 0 !important;
@@ -137,23 +175,27 @@ p {
 }
 
 .btn-style {
-	background: #1abb9c;
+	/*background: #1abb9c;*/ /*green*/
+	/*background: #3884c7;*/ /*blue*/
+	background: #3277b3; /*darker blue*/
+	/*background: #0059b3;*/ /*dark blue*/
 	border: none;
 	height: 50px !important;
 	color: white;
 	font-weight: bold;
 	text-transform: uppercase;
 	border-radius: 0;
+	margin-top: 35px;
 }
 
 .btn-style:hover {
-	background: #159d82;
+	background: #2d6a9f;
 	color: white;
 	font-weight: bold;
 }
 
 .btn-style:active {
-	background-color: #12876f;
+	background-color: #2d6a9f;
 	border-color: none;
 	color: white;
 	font-weight: bold;
@@ -162,7 +204,7 @@ p {
 }
 
 .btn-style:visited {
-	background: #12876f;
+	background: #3277b3;
 	border-color: none;
 	border: none;
 	color: white;
@@ -226,7 +268,9 @@ p {
 
 /* footer */
 
-footer {
+/*footer {
+  position: absolute;
+  bottom: 0;
 	clear: both;
   margin-top: 45px;
   padding-top: 5px;
@@ -250,7 +294,37 @@ footer {
       margin-left: 15px;
     }
   }
+}*/
+
+
+.navbar {
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	small {
+    float: left;
+  }
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
+
+.bottom-navbar {
+	margin-bottom: 0;
+	padding-top: 9px;
+}
+
 
 
 /* miscellaneous */
@@ -358,14 +432,43 @@ input {
 }
 
 
+@media (max-width: 1200px) {
+	.details-line {
+	    width: 94%;
+	}
+}
 
 
+@media (max-width: 992px) {
+	.details-line {
+	    width: 93%;
+	}
+}
+
+@media (max-width: 768px) {
+	.details-line {
+	    width: 96%;
+	}
+}
+
+@media (max-width: 640px) {
+	.details-line {
+	    width: 92%;
+	}
+}
 
 
+@media (max-width: 528px) {
+	.details-line {
+	    width: 94%;
+	}
+}
 
-
-
-
+@media (max-width: 528px) {
+	.details-line {
+	    width: 93%;
+	}
+}
 
 
 
