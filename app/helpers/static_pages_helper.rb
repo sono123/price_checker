@@ -97,22 +97,22 @@ module StaticPagesHelper
 			arr_string.slice!(0)
 			arr_string.chop
 			arr = arr_string.split(",").map(&:to_i)
-			html_string = "<div class='similar-products'><h3 class='text-center similar-header'>Similar Products</h3>"
+			html_string = "<div class='similar-products'><h3 class='text-center similar-header main-header'>Similar Products</h3>"
 			
 			arr.each_with_index do |id, index|
 				bc = BusinessCard.find(id)
 				html_string << "<div class='similar-product index' data-id='#{index + 1}'>"
-				html_string << "<table class='table'>"
-				html_string << "<tr><td class='top-td'>Print Method:</td><td class='top-td'>#{bc.print_method.print_method}</td></tr>"
-				html_string << "<tr><td>Ink Colors:</td><td>#{bc.ink_color.front} / #{bc.ink_color.back}</td></tr>"
-				html_string << "<tr><td>Bleeds:</td><td>#{bc.bleed.front ? 1 : 0} / #{bc.bleed.back ? 1 : 0}</td></tr>"
-				html_string << "<tr><td>Raised Inks:</td><td>#{bc.raised_ink.front} / #{bc.raised_ink.back}</td></tr>"
-				html_string << "<tr><td>Dimensions:</td><td>#{trim bc.dimension.width} x #{trim bc.dimension.height}</td></tr>"
-				html_string << "<tr><td>Coatings:</td><td>#{bc.coating.front} / #{bc.coating.back}</td></tr>"
-				html_string << "<tr><td>Quantity:</td><td>#{bc.quantity.quantity}</td></tr>"
-				html_string << "<tr><td>Box Count:</td><td>#{bc.box_count.box_count}</td></tr>"
-				html_string << "<tr><td>Unit Cost:</td><td>$#{bc.cost}</td></tr>"
-				html_string << "<tr><td>Unit Price:</td><td>$#{bc.price}</td></tr>"
+				html_string << "<table class='table similar-product-table'>"
+				html_string << "<tr><td class='top-td'>Print Method:</td><td class='top-td text-right'>#{bc.print_method.print_method}</td></tr>"
+				html_string << "<tr><td>Ink Colors:</td><td class='text-right'>#{bc.ink_color.front} / #{bc.ink_color.back}</td></tr>"
+				html_string << "<tr><td>Bleeds:</td><td class='text-right'>#{bc.bleed.front ? 1 : 0} / #{bc.bleed.back ? 1 : 0}</td></tr>"
+				html_string << "<tr><td>Raised Inks:</td><td class='text-right'>#{bc.raised_ink.front} / #{bc.raised_ink.back}</td></tr>"
+				html_string << "<tr><td>Dimensions:</td><td class='text-right'>#{trim bc.dimension.width} x #{trim bc.dimension.height}</td></tr>"
+				html_string << "<tr><td>Coatings:</td><td class='text-right'>#{bc.coating.front} / #{bc.coating.back}</td></tr>"
+				html_string << "<tr><td>Quantity:</td><td class='text-right'>#{bc.quantity.quantity}</td></tr>"
+				html_string << "<tr><td>Box Count:</td><td class='text-right'>#{bc.box_count.box_count}</td></tr>"
+				html_string << "<tr><td>Cost:</td><td class='text-right'>$#{bc.cost}</td></tr>"
+				html_string << "<tr><td class='similar-price'>Price:</td><td class='text-right similar-price'>$#{bc.price}.00</td></tr>"
 				html_string << "</table>"
 				html_string << "</div>"
 			end

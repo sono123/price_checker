@@ -15,7 +15,7 @@
 				<div class="page-content col-sm-6 col-sm-offset-3">
 
 					<% flash.each do |message_type, message| %>
-						<div class="alert alert-<%= message_type %>"><%= message %></div>
+						<div class="text-center alert alert-<%= message_type %>"><%= message %></div>
 					<% end %>
 
 					<%= yield %>

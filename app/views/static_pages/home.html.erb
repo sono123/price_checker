@@ -2,12 +2,6 @@
 
 	<div class="row">
 		<div ng-controller="infoController">
-			<% if flash[:error] %>
-				<h4 class="error text-center"><%= flash[:error] %></h4>
-			<% elsif flash[:success] %>
-				<h4 class="success text-center"><%= flash[:success] %></h4>
-			<% else %>
-			<% end %>
 
 			<div class="search-form">
 					<h1 class="text-center main-header">Search</h1>
@@ -15,7 +9,8 @@
 			</div>
 
 			<div class="new-bc-form hide">
-				<h1 class="text-center">Enter New BC</h1>
+			<!-- <div class="new-bc-form"> -->
+				<h1 class="text-center main-header">Enter New BC</h1>
 				<%= render 'new_bc_form' %>
 
 				<div class="similar-products"></div>
