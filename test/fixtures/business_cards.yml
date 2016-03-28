@@ -3,7 +3,7 @@
 one:
   price: 1
   cost: 1
-  print_method_id: 
+  print_method_id: 1
   ink_color_id: 
   bleed_id: 
   raised_ink_id: 
@@ -17,7 +17,7 @@ one:
 two:
   price: 1
   cost: 1
-  print_method_id: 
+  print_method_id: 1
   ink_color_id: 
   bleed_id: 
   raised_ink_id: 
