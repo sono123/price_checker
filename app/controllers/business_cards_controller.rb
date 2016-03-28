@@ -64,7 +64,7 @@ class BusinessCardsController < ApplicationController
       @count = similar_indexes.count
     end
 
-    render :template => 'main/load_more'
+    render :template => 'static_pages/load_more'
   end
 
   def destroy

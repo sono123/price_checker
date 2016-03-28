@@ -146,6 +146,11 @@ p {
 	margin-bottom: 60px;
 }
 
+.edit-price-table {
+	border-top: 6px solid #e6e6e6;
+	margin-bottom: 50px;
+}
+
 .similar-price {
 	font-weight: bold;
 }
@@ -255,6 +260,76 @@ label {
 	color: white;
 	font-weight: bold;
 }
+
+
+
+.small-btn-style:focus {
+	outline: 0;
+	background-color: #3277b3;
+	color: white;
+	font-weight: bold;
+	outline: 0 !important;
+	border-radius: 0;
+}
+
+.small-btn-style {
+	/*background: #1abb9c;*/ /*green*/
+	/*background: #3884c7;*/ /*blue*/
+	background: #3277b3; /*darker blue*/
+	/*background: #0059b3;*/ /*dark blue*/
+	width: 49%;
+	float: right;
+	border: none;
+	height: 50px !important;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 0;
+	margin-top: 35px;
+}
+
+.small-btn-style:hover {
+	background: #2d6a9f;
+	color: white;
+	font-weight: bold;
+}
+
+.small-btn-style:active {
+	background-color: #2d6a9f;
+	border-color: none;
+	color: white;
+	font-weight: bold;
+	border: none;
+	outline: 0 !important;
+}
+
+.small-btn-style:visited {
+	background: #3277b3;
+	border-color: none;
+	border: none;
+	color: white;
+	font-weight: bold;
+}
+
+.label-for-price, .label-for-cost {
+	padding-left: 8px;
+}
+
+.cancel:focus {
+	background: #224f77;
+}
+
+.cancel {
+	float: left;
+	background: #224f77;
+}
+
+.cancel:hover {
+	background: #1c4263;
+}
+
+
+
 
 #selling-price {
 	margin-top: 50px;

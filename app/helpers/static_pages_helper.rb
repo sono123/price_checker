@@ -111,6 +111,7 @@ module StaticPagesHelper
 				html_string << "<tr><td>Coatings:</td><td class='text-right'>#{bc.coating.front} / #{bc.coating.back}</td></tr>"
 				html_string << "<tr><td>Quantity:</td><td class='text-right'>#{bc.quantity.quantity}</td></tr>"
 				html_string << "<tr><td>Box Count:</td><td class='text-right'>#{bc.box_count.box_count}</td></tr>"
+				html_string << "<tr><td>Paper Type:</td><td class='text-right'>#{bc.paper_type.name} / #{bc.paper_type.color} / #{bc.paper_type.thickness}</td></tr>"
 				html_string << "<tr><td>Cost:</td><td class='text-right'>$#{bc.cost}</td></tr>"
 				html_string << "<tr><td class='similar-price'>Price:</td><td class='text-right similar-price'>$#{bc.price}.00</td></tr>"
 				html_string << "</table>"

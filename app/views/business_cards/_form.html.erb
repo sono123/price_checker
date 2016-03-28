@@ -1,17 +1,88 @@
-<%= form_for(@business_card) do |f| %>
-  <% if @business_card.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business_card.errors.count, "error") %> prohibited this business_card from being saved:</h2>
+<% if @business_card.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@business_card.errors.count, "error") %> prohibited this business_card from being saved:</h2>
 
-      <ul>
-      <% @business_card.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+    <ul>
+    <% @business_card.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
+
+<table class="table edit-price-table">
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Print Method:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.print_method.print_method %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Ink Colors:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.ink_color.front %> / <%= @business_card.ink_color.back %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Bleeds:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= over_helper(@business_card.bleed.front) %> / <%= over_helper(@business_card.bleed.back) %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Raised Inks:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.raised_ink.front %> / <%= @business_card.raised_ink.back %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Dimensions:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= trim(@business_card.dimension.width) %> / <%= trim(@business_card.dimension.height) %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Coatings:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.coating.front %> / <%= @business_card.coating.back %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Quantity:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.quantity.quantity %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Box Count:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.box_count.box_count %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Metal:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.metal.front %> / <%= @business_card.metal.back %></td>
+  </tr>
+
+  <tr>
+    <td class="col-sm-1"><strong><span>Paper Type:</span></strong></td>
+    <td class="col-sm-1 text-right"><%= @business_card.paper_type.brand %> - <%= @business_card.paper_type.name %> - <%= @business_card.paper_type.color %> - <%= @business_card.paper_type.thickness.to_s %>lb</td>
+  </tr>
+
+</table>
+
+<%= form_for(@business_card, :url => "/business_cards/#{@business_card.id}", :html => {method: :patch}) do |b| %>
+<div class="field form-group new-form-group">
+  <%= b.label :price, class: "label-for-price" %>
+  <%= b.text_field :price, class: "new-bc-text-field edit-bc-price form-control new-form-control", value: "#{@business_card.price}", onfocus: "if (this.value=='#{@business_card.price}') this.value='';", onblur: "if (this.value=='') this.value='#{@business_card.price}';" %>
+</div>
+<div class="field form-group new-form-group">
+  <%= b.label :cost, class: "label-for-cost" %>
+  <%= b.text_field :cost, class: "new-bc-text-field edit-bc-cost form-control new-form-control", value: "#{@business_card.cost}", onfocus: "if (this.value=='#{@business_card.cost}') this.value='';", onblur: "if (this.value=='') this.value='#{@business_card.cost}';" %>
+</div>
+  <%= b.submit 'Submit', class: "btn small-btn-style" %>
+<% end %>
+
+<%= button_to 'Cancel', root_path, method: :get, class: "btn small-btn-style cancel" %>
+
+
+
+
+
+
+
+
+
