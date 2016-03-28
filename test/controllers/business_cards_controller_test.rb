@@ -2,6 +2,16 @@ require 'test_helper'
 
 class BusinessCardsControllerTest < ActionController::TestCase
   setup do
+    @print_method = print_methods(:one)
+    @ink_color = ink_colors(:one)
+    @bleed = bleeds(:one)
+    @raised_ink = raised_inks(:one)
+    @dimension = dimensions(:one)
+    @paper_type = paper_types(:one)
+    @coating = coatings(:one)
+    @quantity = quantities(:one)
+    @box_count = box_counts(:one)
+    @metal = metals(:one)
     @business_card = business_cards(:one)
   end
 

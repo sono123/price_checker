@@ -77,17 +77,17 @@ class BusinessCardsController < ApplicationController
 
     def business_card_params
       params.require(:business_card).permit(:print_method_id, 
-                                          :ink_color_id, 
-                                          :bleed_id, 
-                                          :raised_ink_id, 
-                                          :dimension_id, 
-                                          :paper_type_id, 
-                                          :coating_id, 
-                                          :quantity_id,
-                                          :box_count_id,
-                                          :metal_id,
-                                          :price,
-                                          :cost)
+                                            :ink_color_id, 
+                                            :bleed_id, 
+                                            :raised_ink_id, 
+                                            :dimension_id, 
+                                            :paper_type_id, 
+                                            :coating_id, 
+                                            :quantity_id,
+                                            :box_count_id,
+                                            :metal_id,
+                                            :price,
+                                            :cost )
     end
 end
 

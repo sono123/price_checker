@@ -3,27 +3,27 @@
 one:
   price: 1
   cost: 1
-  print_method_id: 1
-  ink_color_id: 
-  bleed_id: 
-  raised_ink_id: 
-  dimension_id: 
-  paper_type_id: 
-  coating_id: 
-  quantity_id: 
-  box_count_id: 
-  metal_id: 
+  print_method: :one
+  ink_color: :one
+  bleed: :one
+  raised_ink: :one
+  dimension: :one
+  paper_type: :one
+  coating: :one
+  quantity: :one
+  box_count: :one
+  metal: :one
 
 two:
   price: 1
   cost: 1
-  print_method_id: 1
-  ink_color_id: 
-  bleed_id: 
-  raised_ink_id: 
-  dimension_id: 
-  paper_type_id: 
-  coating_id: 
-  quantity_id: 
-  box_count_id: 
-  metal_id: 
+  print_method: :one
+  ink_color: :one
+  bleed: :one
+  raised_ink: :one
+  dimension: :one
+  paper_type: :one
+  coating: :one
+  quantity: :one
+  box_count: :one
+  metal: :one
