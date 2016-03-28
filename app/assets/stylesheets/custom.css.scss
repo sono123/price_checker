@@ -17,6 +17,7 @@ $gray-medium-light: #eaeaea;
 
 html, body {
   height: 100%;
+  font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -96,7 +97,7 @@ p {
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   padding-top: 24px;
   font-weight: bold;
   &:hover {
@@ -114,7 +115,7 @@ p {
 
 .main-header {
 	margin-bottom: 50px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2.6em;
@@ -140,6 +141,8 @@ p {
 		box-shadow: none;
 		font-weight: bold;
 		cursor: pointer;
+		letter-spacing: .5px;
+		font-size: 1.1em;
 		/*text-decoration: underline;*/
 	}
 	select {
@@ -152,6 +155,11 @@ p {
 		border: none;
 		box-shadow: none;
 	}
+}
+
+label {
+	letter-spacing: .5px;
+	font-size: 1.1em;
 }
 
 .search-form-control {
