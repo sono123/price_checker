@@ -1,26 +1,14 @@
 <h1 class="main-header">Listing Coatings</h1>
 
 <table class="table index-tables">
-  <thead>
-    <tr>
-      <th>Front</th>
-      <th>Back</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @coatings.each do |coating| %>
       <tr>
-        <td><%= coating.front %></td>
-        <td><%= coating.back %></td>
-        <td><%= link_to 'Edit', edit_coating_path(coating) %></td>
-        <td><%= link_to 'Destroy', coating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= coating.front %> / <%= coating.back %></td>
+        <td class="text-right"><span><%= link_to 'Edit', edit_coating_path(coating) %> <%= link_to 'Delete', coating, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= button_to 'New Dimension', new_dimension_path, method: :get, class: "btn-style" %>
+<%= button_to 'New Coating', new_coating_path, method: :get, class: "btn-style" %>

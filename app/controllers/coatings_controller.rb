@@ -28,7 +28,7 @@ class CoatingsController < ApplicationController
 
     respond_to do |format|
       if @coating.save
-        format.html { redirect_to @coating, notice: 'Coating was successfully created.' }
+        format.html { redirect_to coatings_path, notice: 'Coating was successfully created.' }
         format.json { render :show, status: :created, location: @coating }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CoatingsController < ApplicationController
   def update
     respond_to do |format|
       if @coating.update(coating_params)
-        format.html { redirect_to @coating, notice: 'Coating was successfully updated.' }
+        format.html { redirect_to coatings_path, notice: 'Coating was successfully updated.' }
         format.json { render :show, status: :ok, location: @coating }
       else
         format.html { render :edit }

@@ -1,25 +1,14 @@
 <%= form_for(@coating) do |f| %>
-  <% if @coating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@coating.errors.count, "error") %> prohibited this coating from being saved:</h2>
 
-      <ul>
-      <% @coating.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :front %><br>
-    <%= f.text_field :front %>
+  <div class="field form-group new-form-group">
+    <%= f.label :front %>
+    <%= f.text_field :front, class: "new-bc-text-field edit-bc-price form-control new-form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :back %><br>
-    <%= f.text_field :back %>
+  <div class="field form-group new-form-group">
+    <%= f.label :back %>
+    <%= f.text_field :back, class: "new-bc-text-field edit-bc-price form-control new-form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Submit', class: "btn small-btn-style" %>
 <% end %>
+
+<%= button_to 'Cancel', coatings_path, method: :get, class: "btn small-btn-style cancel" %>
