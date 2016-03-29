@@ -28,7 +28,7 @@ class BoxCountsController < ApplicationController
 
     respond_to do |format|
       if @box_count.save
-        format.html { redirect_to @box_count, notice: 'Box count was successfully created.' }
+        format.html { redirect_to box_counts_path, notice: 'Box count was successfully created.' }
         format.json { render :show, status: :created, location: @box_count }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BoxCountsController < ApplicationController
   def update
     respond_to do |format|
       if @box_count.update(box_count_params)
-        format.html { redirect_to @box_count, notice: 'Box count was successfully updated.' }
+        format.html { redirect_to box_counts_path, notice: 'Box count was successfully updated.' }
         format.json { render :show, status: :ok, location: @box_count }
       else
         format.html { render :edit }

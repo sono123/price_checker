@@ -1,21 +1,10 @@
 <%= form_for(@box_count) do |f| %>
-  <% if @box_count.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@box_count.errors.count, "error") %> prohibited this box_count from being saved:</h2>
 
-      <ul>
-      <% @box_count.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :box_count %><br>
-    <%= f.text_field :box_count %>
+  <div class="field form-group new-form-group">
+    <%= f.label :box_count, class: "capitalize" %>
+    <%= f.text_field :box_count, class: "new-bc-text-field edit-bc-price form-control new-form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Submit', class: "btn small-btn-style" %>
 <% end %>
+
+<%= button_to 'Cancel', box_counts_path, method: :get, class: "btn small-btn-style cancel" %>

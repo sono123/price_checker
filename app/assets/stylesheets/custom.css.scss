@@ -37,6 +37,10 @@ html, body {
 	/*color: #00cc00;*/ /*green*/
 }
 
+.capitalize {
+	text-transform: capitalize;
+}
+
 .main-container {
   min-height: 100%;
   height: auto !important;
@@ -392,6 +396,10 @@ label {
 
 .index-tables {
 	border-top: 6px solid #e6e6e6;
+}
+
+.form-labels {
+
 }
 
 
