@@ -7,11 +7,6 @@ class DimensionsController < ApplicationController
     @dimensions = Dimension.all
   end
 
-  # GET /dimensions/1
-  # GET /dimensions/1.json
-  def show
-  end
-
   # GET /dimensions/new
   def new
     @dimension = Dimension.new
@@ -28,8 +23,8 @@ class DimensionsController < ApplicationController
 
     respond_to do |format|
       if @dimension.save
-        format.html { redirect_to @dimension, notice: 'Dimension was successfully created.' }
-        format.json { render :show, status: :created, location: @dimension }
+        format.html { redirect_to dimensions_path, notice: 'Dimension was successfully created.' }
+        format.json { render :index, status: :created, location: @dimension }
       else
         format.html { render :new }
         format.json { render json: @dimension.errors, status: :unprocessable_entity }

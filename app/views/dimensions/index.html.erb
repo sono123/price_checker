@@ -1,29 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1 class="main-header">Listing Dimensions</h1>
 
-<h1>Listing Dimensions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Width</th>
-      <th>Height</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table index-tables">
   <tbody>
     <% @dimensions.each do |dimension| %>
       <tr>
-        <td><%= dimension.width %></td>
-        <td><%= dimension.height %></td>
-        <td><%= link_to 'Show', dimension %></td>
-        <td><%= link_to 'Edit', edit_dimension_path(dimension) %></td>
-        <td><%= link_to 'Destroy', dimension, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= trim(dimension.width) %>" x <%= trim(dimension.height) %>"</td>
+        <td class="text-right"><span><%= link_to 'Edit', edit_dimension_path(dimension) %> <%= link_to 'Delete', dimension, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Dimension', new_dimension_path %>
+<%= button_to 'New Dimension', new_dimension_path, method: :get, class: "btn-style" %>

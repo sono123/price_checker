@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h1 class="main-header">Listing Coatings</h1>
 
-<h1>Listing Coatings</h1>
-
-<table>
+<table class="table index-tables">
   <thead>
     <tr>
       <th>Front</th>
@@ -16,7 +14,6 @@
       <tr>
         <td><%= coating.front %></td>
         <td><%= coating.back %></td>
-        <td><%= link_to 'Show', coating %></td>
         <td><%= link_to 'Edit', edit_coating_path(coating) %></td>
         <td><%= link_to 'Destroy', coating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Coating', new_coating_path %>
+<%= button_to 'New Dimension', new_dimension_path, method: :get, class: "btn-style" %>

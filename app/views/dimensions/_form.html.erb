@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :width %><br>
-    <%= f.text_field :width %>
+  <div class="field form-group new-form-group">
+    <%= f.label :width %>
+    <%= f.text_field :width, class: "new-bc-text-field edit-bc-price form-control new-form-control", value: "0", onfocus: "if (this.value=='0') this.value='';", onblur: "if (this.value=='') this.value='0';" %>
   </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.text_field :height %>
+  <div class="field form-group new-form-group">
+    <%= f.label :height %>
+    <%= f.text_field :height, class: "new-bc-text-field edit-bc-price form-control new-form-control", value: "0", onfocus: "if (this.value=='0') this.value='';", onblur: "if (this.value=='') this.value='0';" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Submit', class: "btn small-btn-style" %>
 <% end %>
+
+<%= button_to 'Cancel', dimensions_path, method: :get, class: "btn small-btn-style cancel" %>
