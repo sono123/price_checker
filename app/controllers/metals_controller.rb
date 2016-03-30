@@ -28,7 +28,7 @@ class MetalsController < ApplicationController
 
     respond_to do |format|
       if @metal.save
-        format.html { redirect_to @metal, notice: 'Metal was successfully created.' }
+        format.html { redirect_to metals_path, notice: 'Metal was successfully created.' }
         format.json { render :show, status: :created, location: @metal }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MetalsController < ApplicationController
   def update
     respond_to do |format|
       if @metal.update(metal_params)
-        format.html { redirect_to @metal, notice: 'Metal was successfully updated.' }
+        format.html { redirect_to metals_path, notice: 'Metal was successfully updated.' }
         format.json { render :show, status: :ok, location: @metal }
       else
         format.html { render :edit }

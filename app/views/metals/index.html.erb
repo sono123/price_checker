@@ -1,24 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h1 class="main-header">Listing Metals</h1>
 
-<h1>Listing Metals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Front</th>
-      <th>Back</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table index-tables">
   <tbody>
     <% @metals.each do |metal| %>
       <tr>
-        <td><%= metal.front %></td>
-        <td><%= metal.back %></td>
-        <td><%= link_to 'Show', metal %></td>
-        <td><%= link_to 'Edit', edit_metal_path(metal) %></td>
-        <td><%= link_to 'Destroy', metal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= metal.front %> / <%= metal.back %></td>
+        <td class="text-right"><%= link_to 'Edit', edit_metal_path(metal) %> <%= link_to 'Destroy', metal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +13,4 @@
 
 <br>
 
-<%= link_to 'New Metal', new_metal_path %>
+<%= button_to 'New Metal', new_metal_path, method: :get, class: "btn-style" %>
