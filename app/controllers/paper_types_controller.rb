@@ -28,7 +28,7 @@ class PaperTypesController < ApplicationController
 
     respond_to do |format|
       if @paper_type.save
-        format.html { redirect_to @paper_type, notice: 'Paper type was successfully created.' }
+        format.html { redirect_to paper_types_path, notice: 'Paper type was successfully created.' }
         format.json { render :show, status: :created, location: @paper_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PaperTypesController < ApplicationController
   def update
     respond_to do |format|
       if @paper_type.update(paper_type_params)
-        format.html { redirect_to @paper_type, notice: 'Paper type was successfully updated.' }
+        format.html { redirect_to paper_types_path, notice: 'Paper type was successfully updated.' }
         format.json { render :show, status: :ok, location: @paper_type }
       else
         format.html { render :edit }
