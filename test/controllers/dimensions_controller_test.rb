@@ -21,7 +21,7 @@ class DimensionsControllerTest < ActionController::TestCase
       post :create, dimension: { height: @dimension.height, width: @dimension.width }
     end
 
-    assert_redirected_to dimension_path(assigns(:dimension))
+    assert_redirected_to dimensions_path
   end
 
   test "should show dimension" do
@@ -36,7 +36,7 @@ class DimensionsControllerTest < ActionController::TestCase
 
   test "should update dimension" do
     patch :update, id: @dimension, dimension: { height: @dimension.height, width: @dimension.width }
-    assert_redirected_to dimension_path(assigns(:dimension))
+    assert_redirected_to dimensions_path
   end
 
   test "should destroy dimension" do

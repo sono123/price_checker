@@ -21,7 +21,7 @@ class CoatingsControllerTest < ActionController::TestCase
       post :create, coating: { back: @coating.back, front: @coating.front }
     end
 
-    assert_redirected_to coating_path(assigns(:coating))
+    assert_redirected_to coatings_path
   end
 
   test "should show coating" do
@@ -36,7 +36,7 @@ class CoatingsControllerTest < ActionController::TestCase
 
   test "should update coating" do
     patch :update, id: @coating, coating: { back: @coating.back, front: @coating.front }
-    assert_redirected_to coating_path(assigns(:coating))
+    assert_redirected_to coatings_path
   end
 
   test "should destroy coating" do

@@ -21,7 +21,7 @@ class MetalsControllerTest < ActionController::TestCase
       post :create, metal: { back: @metal.back, front: @metal.front }
     end
 
-    assert_redirected_to metal_path(assigns(:metal))
+    assert_redirected_to metals_path
   end
 
   test "should show metal" do
@@ -36,7 +36,7 @@ class MetalsControllerTest < ActionController::TestCase
 
   test "should update metal" do
     patch :update, id: @metal, metal: { back: @metal.back, front: @metal.front }
-    assert_redirected_to metal_path(assigns(:metal))
+    assert_redirected_to metals_path
   end
 
   test "should destroy metal" do

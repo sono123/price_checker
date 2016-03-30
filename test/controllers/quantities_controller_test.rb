@@ -21,7 +21,7 @@ class QuantitiesControllerTest < ActionController::TestCase
       post :create, quantity: { quantity: @quantity.quantity }
     end
 
-    assert_redirected_to quantity_path(assigns(:quantity))
+    assert_redirected_to quantities_path
   end
 
   test "should show quantity" do
@@ -36,7 +36,7 @@ class QuantitiesControllerTest < ActionController::TestCase
 
   test "should update quantity" do
     patch :update, id: @quantity, quantity: { quantity: @quantity.quantity }
-    assert_redirected_to quantity_path(assigns(:quantity))
+    assert_redirected_to quantities_path
   end
 
   test "should destroy quantity" do

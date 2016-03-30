@@ -21,7 +21,7 @@ class BoxCountsControllerTest < ActionController::TestCase
       post :create, box_count: { box_count: @box_count.box_count }
     end
 
-    assert_redirected_to box_count_path(assigns(:box_count))
+    assert_redirected_to box_counts_path
   end
 
   test "should show box_count" do
@@ -36,7 +36,7 @@ class BoxCountsControllerTest < ActionController::TestCase
 
   test "should update box_count" do
     patch :update, id: @box_count, box_count: { box_count: @box_count.box_count }
-    assert_redirected_to box_count_path(assigns(:box_count))
+    assert_redirected_to box_counts_path
   end
 
   test "should destroy box_count" do

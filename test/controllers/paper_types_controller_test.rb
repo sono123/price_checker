@@ -21,7 +21,7 @@ class PaperTypesControllerTest < ActionController::TestCase
       post :create, paper_type: { brand: @paper_type.brand, color: @paper_type.color, name: @paper_type.name, thickness: @paper_type.thickness }
     end
 
-    assert_redirected_to paper_type_path(assigns(:paper_type))
+    assert_redirected_to paper_types_path
   end
 
   test "should show paper_type" do
@@ -36,7 +36,7 @@ class PaperTypesControllerTest < ActionController::TestCase
 
   test "should update paper_type" do
     patch :update, id: @paper_type, paper_type: { brand: @paper_type.brand, color: @paper_type.color, name: @paper_type.name, thickness: @paper_type.thickness }
-    assert_redirected_to paper_type_path(assigns(:paper_type))
+    assert_redirected_to paper_types_path
   end
 
   test "should destroy paper_type" do
