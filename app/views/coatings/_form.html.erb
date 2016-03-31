@@ -1,5 +1,17 @@
 <%= form_for(@coating) do |f| %>
 
+	<% if @coating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coating.errors.count, "error") %> prohibited these dimensions from being saved:</h2>
+
+      <ul>
+      <% @coating.errors.full_messages.each do |message| %>
+        <li><%= message %>!</li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field form-group new-form-group">
     <%= f.label :front %>
     <%= f.text_field :front, class: "new-bc-text-field edit-bc-price form-control new-form-control" %>

@@ -1,5 +1,17 @@
 <%= form_for(@paper_type) do |f| %>
 
+  <% if @paper_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paper_type.errors.count, "error") %> prohibited these dimensions from being saved:</h2>
+
+      <ul>
+      <% @paper_type.errors.full_messages.each do |message| %>
+        <li><%= message %>!</li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field hidden">
     <%= f.label :brand %>
     <%= f.text_field :brand %>

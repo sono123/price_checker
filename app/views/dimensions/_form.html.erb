@@ -1,5 +1,17 @@
 <%= form_for(@dimension) do |f| %>
 
+	<% if @dimension.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dimension.errors.count, "error") %> prohibited these dimensions from being saved:</h2>
+
+      <ul>
+      <% @dimension.errors.full_messages.each do |message| %>
+        <li><%= message %>!</li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field form-group new-form-group">
     <%= f.label :width %>
     <%= f.text_field :width, class: "new-bc-text-field edit-bc-price form-control new-form-control" %>

@@ -1,4 +1,4 @@
 class Dimension < ActiveRecord::Base
-	validates_numericality_of :width, on: :create
-	validates_numericality_of :height, on: :create
+	validates_numericality_of :width
+	validates_numericality_of :height
 end
