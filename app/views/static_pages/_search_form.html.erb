@@ -47,12 +47,10 @@
 		<%= select_tag 'metal_id', options_for_select(metals), {"ng-model" => "data.metal_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<div class="form-group search-form-group">
+	<div class="form-group search-form-group paper-type">
 		<%= label_tag 'paper_types', 'Paper Type' %><a class="edit-menu" href="/paper_types"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<%= select_tag 'paper_type_id', options_for_select(paper_types), {"ng-model" => "data.paper_type_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
-
-	<br>
 
 	<%= submit_tag 'Search', class: "btn btn-style btn-block" %>
 
