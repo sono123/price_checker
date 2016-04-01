@@ -16,6 +16,16 @@
 				<div class="page-content col-sm-6 col-sm-offset-3">
 
 					<% flash.each do |message_type, message| %>
+						<% if message.class == Hash %>
+							<div class="text-center business-card-errors">
+					    	<ul>
+						      <% message.each do |type, msg| %>
+						        <li>Please include the <%= type %>!</li>
+						      <% end %>
+					      </ul>
+					    </div>
+					    <% next %>
+						<% end %>
 						<div class="text-center alert alert-<%= message_type %>"><%= message %></div>
 					<% end %>
 

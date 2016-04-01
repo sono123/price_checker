@@ -14,6 +14,10 @@ class BusinessCardsController < ApplicationController
         redirect_to root_path
       else
         flash[:error] = "Business card could not be added."
+        flash[:alert] = @business_card.errors
+        # @business_card.errors.each do |type, message|
+        #   flash[type] = "Check #{type}!"
+        # end
         redirect_to root_path
       end
     end
