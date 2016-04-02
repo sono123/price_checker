@@ -35,26 +35,38 @@ class BusinessCardsController < ApplicationController
   end
 
   def search
-    search = BusinessCard.search(params)
-    result = search[0]
 
-    if result
-      @price = result.price.to_s
-      @cost = result.cost.to_s
-      @id = result.id.to_s
-      render :template => 'static_pages/search'
-    else
-      similar = BusinessCard.similar_products(params)
+    if params[:print_method_id].to_i > 0 && params[:ink_color_id].to_i > 0 && params[:paper_type_id].to_i > 0 && params[:quantity_id].to_i > 0 && params[:box_count_id].to_i > 0
+      search = BusinessCard.search(params)
+      result = search[0]
+      puts "*" * 100
+      p result
 
-      if similar
-        @similar = similar.map {|obj| obj[0]}[0..4].to_s
-        @count = similar.count
+      if result
+        @price = result.price.to_s
+        @cost = result.cost.to_s
+        @id = result.id.to_s
+        render :template => 'static_pages/search'
       else
-        @count = 0
-      end
+        similar = BusinessCard.similar_products(params)
 
-      render :template => 'static_pages/new_bc'
+        if similar
+          @similar = similar.map {|obj| obj[0]}[0..4].to_s
+          @count = similar.count
+        else
+          @count = 0
+        end
+
+        render :template => 'static_pages/new_bc'
+      end
+    else
+      flash[:error] = "Business card could not be added. Make sure to select all options."
+      puts "*" * 100
+      puts "ELSE BRANCH"
+      puts flash[:error]
+      redirect_to root_path, error: "Business card could not be added. Make sure to select all options."
     end
+
   end
 
   def more

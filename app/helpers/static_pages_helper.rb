@@ -1,17 +1,17 @@
 module StaticPagesHelper
 
 	def print_methods
-		@print_methods.map{ |m| [m.print_method.split.map(&:capitalize).join(' '), m.id] }
+		print_methods = @print_methods.map{ |m| [m.print_method.split.map(&:capitalize).join(' '), m.id] }
+		print_methods.unshift(["Select", 0])
 	end
 
 	def ink_colors
-		@ink_colors.map do |i|
-			[i.front.to_s + "/" + i.back.to_s, i.id]
-		end
+		ink_colors = @ink_colors.map { |i| [i.front.to_s + "/" + i.back.to_s, i.id] }
+		ink_colors.unshift(["Select", 0])
 	end
 
 	def bleeds
-		@bleeds.map do |i|
+		bleeds = @bleeds.map do |i|
 			front = ""
 			back = ""
 
@@ -29,12 +29,15 @@ module StaticPagesHelper
 
 			[front + "/" + back, i.id]
 		end
+
+		bleeds[0] = ["None", 1]
+		bleeds
 	end
 
 	def raised_inks
-		@raised_inks.map do |i|
-			[i.front.to_s + "/" + i.back.to_s, i.id]
-		end
+		raised_inks = @raised_inks.map { |i| [i.front.to_s + "/" + i.back.to_s, i.id] }
+		raised_inks[0] = ["None", 1]
+		raised_inks
 	end
 
 	def trim(num)
@@ -50,33 +53,30 @@ module StaticPagesHelper
 	end
 
 	def paper_types
-		@paper_types.map do |i|
-			[i.name.split.map(&:capitalize).join(' ') + " / " + i.color.split.map(&:capitalize).join(' ') + " / " + i.thickness.to_s + "lb", i.id]
-		end
+		paper_types = @paper_types.map { |i| [i.name.split.map(&:capitalize).join(' ') + " / " + i.color.split.map(&:capitalize).join(' ') + " / " + i.thickness.to_s + "lb", i.id] }
+		paper_types.unshift(["Select", 0])
 	end
 
 	def coatings
-		@coatings.map do |i|
-			[i.front.capitalize + " / " + i.back.capitalize, i.id]
-		end
+		coatings = @coatings.map { |i| [i.front.capitalize + " / " + i.back.capitalize, i.id] }
+		coatings[0] = ["None", 1]
+		coatings
 	end
 
 	def quantities
-		@quantities.map do |i|
-			[i.quantity, i.id]
-		end
+		quantities = @quantities.map { |i| [i.quantity, i.id] }
+		quantities.unshift(["Select", 0])
 	end
 
 	def box_counts
-		@box_counts.map do |i|
-			[i.box_count, i.id]
-		end
+		box_counts = @box_counts.map { |i| [i.box_count, i.id] }
+		box_counts.unshift(["Select", 0])
 	end
 
 	def metals
-		@metals.map do |i|
-			[i.front.capitalize + " / " + i.back.capitalize, i.id]
-		end
+		metals = @metals.map { |i| [i.front.capitalize + " / " + i.back.capitalize, i.id] }
+		metals[0] = ["None", 1]
+		metals
 	end
 
 	def overhead

@@ -32,27 +32,47 @@ end
 
 
 # Ink Colors
-(0..4).each do |front|
-	(0..4).each do |back|
-		InkColor.create(front: front, back: back)
-	end
-end
+InkColor.create(front: 1, back: 0)
+InkColor.create(front: 2, back: 0)
+InkColor.create(front: 3, back: 0)
+InkColor.create(front: 4, back: 0)
+InkColor.create(front: 1, back: 1)
+InkColor.create(front: 2, back: 1)
+InkColor.create(front: 3, back: 1)
+InkColor.create(front: 4, back: 1)
+InkColor.create(front: 2, back: 2)
+InkColor.create(front: 3, back: 2)
+InkColor.create(front: 4, back: 2)
+InkColor.create(front: 3, back: 3)
+InkColor.create(front: 4, back: 3)
+InkColor.create(front: 4, back: 4)
+
+
 
 
 # Bleeds
-[false, true].each do |front|
-	[false, true].each do |back|
-		Bleed.create(front: front, back: back)
-	end
-end
+Bleed.create(front: false, back: false)
+Bleed.create(front: true, back: false)
+Bleed.create(front: false, back: true)
+Bleed.create(front: true, back: true)
 
 
 # Raised Inks
-(0..4).each do |front|
-	(0..4).each do |back|
-		RaisedInk.create(front: front, back: back)
-	end
-end
+RaisedInk.create(front: 0, back: 0)
+RaisedInk.create(front: 1, back: 0)
+RaisedInk.create(front: 2, back: 0)
+RaisedInk.create(front: 3, back: 0)
+RaisedInk.create(front: 4, back: 0)
+RaisedInk.create(front: 1, back: 1)
+RaisedInk.create(front: 2, back: 1)
+RaisedInk.create(front: 3, back: 1)
+RaisedInk.create(front: 4, back: 1)
+RaisedInk.create(front: 2, back: 2)
+RaisedInk.create(front: 3, back: 2)
+RaisedInk.create(front: 4, back: 2)
+RaisedInk.create(front: 3, back: 3)
+RaisedInk.create(front: 4, back: 3)
+RaisedInk.create(front: 4, back: 4)
 
 
 # Dimensions
@@ -73,26 +93,14 @@ PaperType.create(brand: "mohawk", name: "strathmore", color: "natural white", th
 # Coatings
 Coating.create(front: "none", back: "none")
 
-Coating.create(front: "uv coating", back: "uv coating")
-Coating.create(front: "uv coating", back: "none")
-Coating.create(front: "none", back: "uv coating")
-
-Coating.create(front: "dull matte", back: "dull matte")
-Coating.create(front: "dull matte", back: "none")
-Coating.create(front: "none", back: "dull matte")
-
-Coating.create(front: "silk laminate", back: "silk laminate")
-Coating.create(front: "silk laminate", back: "none")
-Coating.create(front: "none", back: "silk laminate")
-
-Coating.create(front: "suede laminate", back: "suede laminate")
-Coating.create(front: "suede laminate", back: "none")
-Coating.create(front: "none", back: "suede laminate")
-
-Coating.create(front: "varnish", back: "varnish")
+Coating.create(front: "uv", back: "none")
+Coating.create(front: "none", back: "uv")
+Coating.create(front: "uv", back: "uv")
+Coating.create(front: "silk", back: "silk")
+Coating.create(front: "suede", back: "suede")
 Coating.create(front: "varnish", back: "none")
 Coating.create(front: "none", back: "varnish")
-
+Coating.create(front: "varnish", back: "varnish")
 
 
 # Quantities
@@ -103,24 +111,23 @@ end
 
 
 # Box Counts
-box_increments = (1..10).to_a
-box_increments.each do |qty|
+(1..10).to_a.each do |qty|
 	BoxCount.create(box_count: qty)
 end
 
 # Metals
 Metal.create(front: "none", back: "none")
-
-Metal.create(front: "foil stamped", back: "foil stamped")
-Metal.create(front: "foil stamped", back: "none")
-Metal.create(front: "none", back: "foil stamped")
-
-Metal.create(front: "inline foil", back: "inline foil")
-Metal.create(front: "inline foil", back: "none")
-Metal.create(front: "none", back: "inline foil")
-
-Metal.create(front: "metallic ink", back: "metallic ink")
+Metal.create(front: "foil", back: "none")
+Metal.create(front: "none", back: "foil")
+Metal.create(front: "foil", back: "foil")
 Metal.create(front: "metallic ink", back: "none")
 Metal.create(front: "none", back: "metallic ink")
+Metal.create(front: "metallic ink", back: "metallic ink")
+
+
+
+
+
+
 
 
