@@ -15,9 +15,6 @@ class BusinessCardsController < ApplicationController
       else
         flash[:error] = "Business card could not be added."
         flash[:alert] = @business_card.errors
-        # @business_card.errors.each do |type, message|
-        #   flash[type] = "Check #{type}!"
-        # end
         redirect_to root_path
       end
     end
@@ -39,8 +36,6 @@ class BusinessCardsController < ApplicationController
     if params[:print_method_id].to_i > 0 && params[:ink_color_id].to_i > 0 && params[:paper_type_id].to_i > 0 && params[:quantity_id].to_i > 0 && params[:box_count_id].to_i > 0
       search = BusinessCard.search(params)
       result = search[0]
-      puts "*" * 100
-      p result
 
       if result
         @price = result.price.to_s
@@ -49,22 +44,17 @@ class BusinessCardsController < ApplicationController
         render :template => 'static_pages/search'
       else
         similar = BusinessCard.similar_products(params)
-
         if similar
           @similar = similar.map {|obj| obj[0]}[0..4].to_s
           @count = similar.count
         else
           @count = 0
         end
-
         render :template => 'static_pages/new_bc'
       end
+
     else
-      flash[:error] = "Business card could not be added. Make sure to select all options."
-      puts "*" * 100
-      puts "ELSE BRANCH"
-      puts flash[:error]
-      redirect_to root_path, error: "Business card could not be added. Make sure to select all options."
+      render :template => 'static_pages/select_error'
     end
 
   end
