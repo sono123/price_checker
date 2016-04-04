@@ -60,16 +60,16 @@ class BusinessCardsController < ApplicationController
   end
 
   def more
-    similar = BusinessCard.similar_products(params)
-    index = params[:index].to_i - 1
-
+    similar = BusinessCard.similar_products(params) #[[22, 30], [10, 25], [7, 25], [25, 25], [21, 25], [12, 25], [9, 20], [23, 20], [11, 18], [24, 18], [6, 18]]
+    index = params[:index].to_i - 1                 #9
     if similar
-      similar_indexes = similar.map {|obj| obj[0]}
-      similar_indexes.slice!(0..index)
-      @load_more = similar_indexes[0..4].to_s
-      @count = similar_indexes.count
+      similar_indexes = similar.map {|obj| obj[0]}  #[22, 10, 7, 25, 21, 12, 9, 23, 11, 24, 6]
+      similar_indexes.slice!(0..index)              #[6]
+      @load_more = similar_indexes[0..4].to_s       #[6]
+      @count = similar_indexes.count                #1
+      # debugger
     end
-
+    
     render :template => 'static_pages/load_more'
   end
 

@@ -1,20 +1,21 @@
 $('.search-form').addClass("hide");
 $('.new-bc-form').removeClass("hide");
-$('.similar-products').replaceWith("<%= j similar_products( @similar ) %>");
+$('.similar-header').removeClass("hide");
+$('.similar-products').append("<%= j similar_products( @similar ) %>");
+$('.alert-error').empty();
 
-if ( parseInt("<%= @count %>") < 5) {
+if ( parseInt("<%= @count %>") <= 5) {
 	$('.load-more').addClass("hide");
 } else {
 	$('.load-more').removeClass("hide");
 };
 
 $('.more').submit(function(){
-	var last_id = $('.index').last().attr('data-id');
-	$('.index-field').val(last_id)
-	console.log(last_id);
+	var count = $('.similar-product').size();
+	console.log(count);
+	$('.index-field').val(count)
 });
 
-console.log(<%= @count %>);
 
 
 

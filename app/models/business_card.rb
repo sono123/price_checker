@@ -28,8 +28,6 @@ class BusinessCard < ActiveRecord::Base
                             :paper_type_id, 
                             greater_than: 0, 
                             on: :create
-  # validates_numericality_of :price, greater_than: 0, on: :create
-  # validates_numericality_of :cost, greater_than: 0, on: :create
 
   def self.search(q)
     result = where("print_method_id = ? AND ink_color_id = ? AND bleed_id = ? AND raised_ink_id = ? AND dimension_id = ? AND paper_type_id = ? AND coating_id = ? AND quantity_id = ? AND box_count_id = ? AND metal_id = ?", q['print_method_id'], q['ink_color_id'], q['bleed_id'], q['raised_ink_id'], q['dimension_id'], q['paper_type_id'], q['coating_id'], q['quantity_id'], q['box_count_id'], q['metal_id'])
@@ -103,14 +101,15 @@ class BusinessCard < ActiveRecord::Base
     sum = score.inject(:+)
   end
 
-  def generate_cmyk_offset_score(bc, target)
-  end
-
-  def generate_letterpress_score(bc, target)
-  end
-
-  def generate_digital_score(bc, target)
-  end
+  # # implementation coming
+  # def generate_cmyk_offset_score(bc, target)
+  # end
+  # # implementation coming
+  # def generate_letterpress_score(bc, target)
+  # end
+  # # implementation coming
+  # def generate_digital_score(bc, target)
+  # end
 
   def self.pantone_ink_color_score(b, t)
     b_colors = b.ink_color.front + b.ink_color.back
@@ -143,9 +142,6 @@ class BusinessCard < ActiveRecord::Base
   def self.pantone_bleed_score(b)
     pb_score = 0
 
-    puts "*****************************"
-    puts "REACHED_BLEED_SCORE_METHOD"
-    puts "*****************************"
     if b.bleed.front == true || b.bleed.back == true
       pb_score = 15
     else

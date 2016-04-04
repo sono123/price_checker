@@ -44,7 +44,13 @@ html, body {
 .business-card-errors ul {
 	list-style: none;
 	padding: 0;
+	margin-top: 30px;
 }
+
+.business-card-errors {
+	margin-top: -30px;
+}
+
 
 .capitalize {
 	text-transform: capitalize;
@@ -202,6 +208,7 @@ p {
     -moz-appearance:none;
     appearance:none;
     margin-right: -12px;
+    width: 65%;
 	}
 	.form-control:focus {
 		border: none;
@@ -213,7 +220,7 @@ p {
 }
 
 .paper-type {
-	margin-bottom: 55px;
+	margin-bottom: 50px;
 }
 
 label {
@@ -331,6 +338,11 @@ label {
 	border: none;
 	color: white;
 	font-weight: bold;
+}
+
+.homepage-button {
+	margin-top: 0;
+	margin-bottom: 50px;
 }
 
 .label-for-price, .label-for-cost {

@@ -52,7 +52,11 @@
 		<%= select_tag 'paper_type_id', options_for_select(paper_types), {"ng-model" => "data.paper_type_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
 	</div>
 
-	<%= submit_tag 'Search', class: "btn btn-style btn-block" %>
+	<%= submit_tag 'Search', class: "btn small-btn-style homepage-button" %>
+
+<% end %>
+
+	<%= button_to 'Reload', root_path, method: :get, class: "btn small-btn-style cancel homepage-button" %>
 
 	<h3 id="selling-price">
 		Selling Price: 
@@ -95,8 +99,6 @@
 		<i class="glyphicon glyphicon-plus expand-details detail-icons hide"></i>
 		<i class="glyphicon glyphicon-minus minimize-details detail-icons hide"></i>
 	</div>
-
-<% end %>
 
 
 

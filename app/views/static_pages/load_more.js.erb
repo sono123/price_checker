@@ -1,7 +1,7 @@
-$('.similar-products').append("<%= j similar_products( @load_more ) %>");
-$('.similar-header').last().hide();
 
-if ( parseInt("<%= @count %>") < 5) {
+$('.similar-products').append("<%= j similar_products( @load_more ) %>");
+
+if ( parseInt("<%= @count %>") <= 5) {
 	$('.load-more').addClass("hide");
 }
 

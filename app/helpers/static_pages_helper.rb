@@ -95,9 +95,15 @@ module StaticPagesHelper
 	def similar_products(arr_string)
 		if arr_string
 			arr_string.slice!(0)
-			arr_string.chop
-			arr = arr_string.split(",").map(&:to_i)
-			html_string = "<div class='similar-products'><h3 class='text-center similar-header main-header'>Similar Products</h3>"
+			arr_string.chop!
+
+			if arr_string.length > 1
+				arr = arr_string.split(",").map(&:to_i)
+			else
+				arr = [arr_string.to_i]
+			end
+
+			html_string = ""
 			
 			arr.each_with_index do |id, index|
 				bc = BusinessCard.find(id)
@@ -118,7 +124,6 @@ module StaticPagesHelper
 				html_string << "</div>"
 			end
 
-			html_string << "</div>"
 			html_string.html_safe
 		end
 	end
