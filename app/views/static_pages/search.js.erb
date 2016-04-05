@@ -2,8 +2,9 @@ $('.price').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>
 $('.cost').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'><i class='edit glyphicon glyphicon-plus'></i></a> <span class='cost'>- $<%= j @cost %></span>");
 $('.overhead').replaceWith("<span class='overhead'>- $<%= j overhead %></span>");
 $('.margin').replaceWith("<span class='margin'>$<%= j margin %></span>");
-$('.btn-style').attr("disabled", "true");
+$('.small-btn-search').attr("disabled", "true");
 $('select').attr("disabled", "true");
+$('.alert').empty();
 console.log("<%= j @price %>");
 
 
