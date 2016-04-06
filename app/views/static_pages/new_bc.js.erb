@@ -2,6 +2,7 @@ $('.search-form').addClass("hide");
 $('.new-bc-form').removeClass("hide");
 $('.similar-header').removeClass("hide");
 $('.similar-products').append("<%= j similar_products( @similar ) %>");
+$('.alert').empty();
 $('.alert-error').empty();
 
 if ( parseInt("<%= @count %>") <= 5) {

@@ -39,4 +39,76 @@ angular.module("bcApp", [])
 			metal_id: "1"
 		};
 	}]);
-	})(window.angular);
+})(window.angular);
+
+
+// $( ".small-btn-search" ).on( "click", function(event) {
+// 	if ( $('select[name=print_method_id]').val() == "0" ) {
+// 		alert($('select[name=print_method_id]').val());
+// 		event.preventDefault();
+// 		$( "#print_method_id" ).css( "color", "red" );
+// 	}
+// });
+
+
+$(document).ready(function() {
+
+	var selectError = function() {
+		$('.select-error').html("<p class='alert-error'>Please make sure all options are selected.</p>");
+	};
+
+	var selectMessage = false;
+
+	$( ".small-btn-search" ).on( "click", function(event) {
+		
+		if ( $('select[name=print_method_id]').val() == "0" ) {
+			event.preventDefault();
+			$( "#print_method_id" ).css( "color", "#ff5c33" );
+			selectMessage = true;
+		};
+
+		if ( $('select[name=ink_color_id]').val() == "0" ) {
+			event.preventDefault();
+			$( "#ink_color_id" ).css( "color", "#ff5c33" );
+			selectMessage = true;
+		};
+
+		if ( $('select[name=quantity_id]').val() == "0" ) {
+			event.preventDefault();
+			$( "#quantity_id" ).css( "color", "#ff5c33" );
+			selectMessage = true;
+		};
+
+		if ( $('select[name=box_count_id]').val() == "0" ) {
+			event.preventDefault();
+			$( "#box_count_id" ).css( "color", "#ff5c33" );
+			selectMessage = true;
+		};
+
+		if ( $('select[name=paper_type_id]').val() == "0" ) {
+			event.preventDefault();
+			$( "#paper_type_id" ).css( "color", "#ff5c33" );
+			selectMessage = true;
+		};
+
+		if ( selectMessage == true ) {
+			selectError();
+		};
+
+	});
+});
+
+// $(window).bind("load", function() {
+// 	$( ".search" ).on( "click", function(event) {
+// 		if ( $('select[name=print_method_id]').val() == "0" ) {
+// 			event.preventDefault();
+// 			$( "#print_method_id" ).css( "color", "red" );
+// 		};
+// 	});
+// }):
+
+
+
+
+
+ 
