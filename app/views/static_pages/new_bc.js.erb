@@ -4,6 +4,7 @@ $('.similar-header').removeClass("hide");
 $('.similar-products').append("<%= j similar_products( @similar ) %>");
 $('.alert').empty();
 $('.alert-error').empty();
+$('.business-card-errors').empty();
 
 if ( parseInt("<%= @count %>") <= 5) {
 	$('.load-more').addClass("hide");

@@ -96,6 +96,7 @@ $(document).ready(function() {
 		};
 
 	});
+
 });
 
 // $(window).bind("load", function() {
@@ -107,7 +108,9 @@ $(document).ready(function() {
 // 	});
 // }):
 
+// $("#business_card_print_method_id option").attr("selected", "1");
 
+// $('#business_card_print_method_id option[value=2]').attr("selected", "selected");
 
 
 

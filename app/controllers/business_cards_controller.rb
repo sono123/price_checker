@@ -15,7 +15,19 @@ class BusinessCardsController < ApplicationController
       else
         flash[:error] = "Business card could not be added."
         flash[:alert] = @business_card.errors
-        redirect_to root_path
+        flash[:print_method_id] = params["business_card"]["print_method_id"]
+        flash[:ink_color_id] = params["business_card"]["ink_color_id"]
+        flash[:bleed_id] = params["business_card"]["bleed_id"]
+        flash[:raised_ink_id] = params["business_card"]["raised_ink_id"]
+        flash[:dimension_id] = params["business_card"]["dimension_id"]
+        flash[:coating_id] = params["business_card"]["coating_id"]
+        flash[:quantity_id] = params["business_card"]["quantity_id"]
+        flash[:box_count_id] = params["business_card"]["box_count_id"]
+        flash[:metal_id] = params["business_card"]["metal_id"]
+        flash[:paper_type_id] = params["business_card"]["paper_type_id"]
+        flash[:error_redirect] = true
+        
+        redirect_to error_path
       end
     end
   end
