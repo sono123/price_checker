@@ -1,3 +1,5 @@
+<h1 class="text-center main-header">Enter New BC</h1>
+
 <%= form_for(@business_card, :url => business_cards_path, :html => {method: :post}) do |b| %>
 
 	<div class="form-group new-form-group">
@@ -92,9 +94,15 @@
 
 	<br>
 
-	<% unless @result %>
-		<h4 class="error text-center"><%= "That price is not in the system." %></h4>
-	<% end %>
+	<div class="price-cost-error">
+		<% unless @result %>
+			<% if flash[:error_redirect] == true %>
+				<h4 class="error text-center">Please enter the Price and Cost.</h4>
+			<% else %>
+				<h4 class="error text-center">That price is not in the system.</h4>
+			<% end %>
+		<% end %>
+	</div>
 
 	<br>
 
@@ -110,7 +118,7 @@
 
 	<br>
 
-	<%= b.submit 'Submit', class: "btn btn-style btn-block" %>
+	<%= b.submit 'Submit', class: "btn btn-style btn-block new-bc-btn" %>
 
 <% end %>
 

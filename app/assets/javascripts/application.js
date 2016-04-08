@@ -97,6 +97,14 @@ $(document).ready(function() {
 
 	});
 
+	$('.new-bc-btn').on( "click", function(event) {
+		if ( $(".new-bc-price").val() == "Add Price" || $(".new-bc-cost").val() == "Add Cost" ) {
+			event.preventDefault();
+			$(".price-cost-error").empty();
+			$(".price-cost-error").append("<h4 class='error text-center'>Please enter the Price and Cost.</h4>");
+		};
+	});
+
 });
 
 // $(window).bind("load", function() {
