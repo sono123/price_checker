@@ -57,9 +57,14 @@ $(document).ready(function() {
 		$('.select-error').html("<p class='alert-error'>Please make sure all options are selected.</p>");
 	};
 
-	var selectMessage = false;
+	// var selectMessage = false;
 
 	$( ".small-btn-search" ).on( "click", function(event) {
+
+		var selectMessage = false;
+		
+		$(".select-error").empty();
+		$( "select" ).css( "color", "#3277b3" );
 		
 		if ( $('select[name=print_method_id]').val() == "0" ) {
 			event.preventDefault();
@@ -92,6 +97,8 @@ $(document).ready(function() {
 		};
 
 		if ( selectMessage == true ) {
+			console.log("Reached conditional.");
+			console.log(selectError());
 			selectError();
 		};
 
