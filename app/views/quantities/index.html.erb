@@ -5,7 +5,7 @@
     <% @quantities.each do |quantity| %>
       <tr>
         <td><%= quantity.quantity %></td>
-        <td class="text-right"><%= link_to 'Edit', edit_quantity_path(quantity) %> <%= link_to 'Delete', quantity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-right"><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_quantity_path(quantity) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, quantity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

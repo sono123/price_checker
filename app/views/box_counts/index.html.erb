@@ -5,7 +5,7 @@
     <% @box_counts.each do |box_count| %>
       <tr>
         <td><%= pluralize(box_count.box_count, "Box") %></td>
-        <td class="text-right"><%= link_to 'Edit', edit_box_count_path(box_count) %> <%= link_to 'Delete', box_count, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-right"><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_box_count_path(box_count) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, box_count, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

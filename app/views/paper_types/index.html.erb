@@ -6,7 +6,7 @@
       <tr>
         <!-- <td><%= paper_type.brand %></td> -->
         <td><%= paper_type.name %> / <%= paper_type.color %> / <%= paper_type.thickness %>lb</td>
-        <td class="text-right"><%= link_to 'Edit', edit_paper_type_path(paper_type) %> <%= link_to 'Destroy', paper_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-right"><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_paper_type_path(paper_type) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, paper_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

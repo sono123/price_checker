@@ -5,7 +5,7 @@
     <% @dimensions.each do |dimension| %>
       <tr>
         <td><%= trim(dimension.width) %> x <%= trim(dimension.height) %></td>
-        <td class="text-right"><span><%= link_to 'Edit', edit_dimension_path(dimension) %> <%= link_to 'Delete', dimension, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+        <td class="text-right"><span><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_dimension_path(dimension) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, dimension, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
       </tr>
     <% end %>
   </tbody>

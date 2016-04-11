@@ -5,7 +5,7 @@
     <% @coatings.each do |coating| %>
       <tr>
         <td><%= coating.front %> / <%= coating.back %></td>
-        <td class="text-right"><span><%= link_to 'Edit', edit_coating_path(coating) %> <%= link_to 'Delete', coating, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+        <td class="text-right"><span><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_coating_path(coating) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, coating, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
       </tr>
     <% end %>
   </tbody>
