@@ -428,10 +428,15 @@ label {
 	border-top: 6px solid #e6e6e6;
 }
 
-.form-labels {
-
+tr:first-child td {
+	height: 50px;
+	padding-top: 19px !important;
 }
 
+.new-resource-form {
+	border-top: 6px solid #e6e6e6;
+  padding-top: 50px;
+}
 
 /* footer */
 

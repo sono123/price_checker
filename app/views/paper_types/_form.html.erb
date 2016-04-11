@@ -2,11 +2,9 @@
 
   <% if @paper_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@paper_type.errors.count, "error") %> prohibited these dimensions from being saved:</h2>
-
       <ul>
-      <% @paper_type.errors.full_messages.each do |message| %>
-        <li><%= message %>!</li>
+      <% @paper_type.errors.messages.each do |message| %>
+        <li><%= message[1][0] %>!</li>
       <% end %>
       </ul>
     </div>

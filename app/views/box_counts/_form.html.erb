@@ -1,12 +1,10 @@
-<%= form_for(@box_count) do |f| %>
+<%= form_for @box_count, html: { class: "new-resource-form" } do |f| %>
 
 	<% if @box_count.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@box_count.errors.count, "error") %> prohibited these dimensions from being saved:</h2>
-
       <ul>
-      <% @box_count.errors.full_messages.each do |message| %>
-        <li><%= message %>!</li>
+      <% @box_count.errors.messages.each do |message| %>
+        <li><%= message[1][0] %>!</li>
       <% end %>
       </ul>
     </div>

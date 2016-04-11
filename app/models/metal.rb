@@ -1,3 +1,3 @@
 class Metal < ActiveRecord::Base
-	validates :front, :back, presence: true, length: { minimum: 4 }
+	validates :front, :back, presence: true
 end
