@@ -87,6 +87,10 @@ module StaticPagesHelper
 		end
 	end
 
+	def multi_capitalize(string)
+		string.split.map(&:capitalize).join(' ')
+	end
+
 	def margin
 		@margin = @price.to_i - (@cost.to_i + overhead.to_i)
 		@margin.to_s

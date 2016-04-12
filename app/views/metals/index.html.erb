@@ -4,7 +4,7 @@
   <tbody>
     <% @metals.each do |metal| %>
       <tr>
-        <td><%= metal.front %> / <%= metal.back %></td>
+        <td><%= multi_capitalize( metal.front ) %> / <%= multi_capitalize( metal.back ) %></td>
         <td class="text-right"><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_metal_path(metal) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, metal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

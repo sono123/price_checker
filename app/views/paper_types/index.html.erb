@@ -4,8 +4,7 @@
   <tbody>
     <% @paper_types.each do |paper_type| %>
       <tr>
-        <!-- <td><%= paper_type.brand %></td> -->
-        <td><%= paper_type.name %> / <%= paper_type.color %> / <%= paper_type.thickness %>lb</td>
+        <td><%= multi_capitalize( paper_type.name ) %> / <%= multi_capitalize( paper_type.color ) %> / <%= paper_type.thickness %>lb</td>
         <td class="text-right"><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_paper_type_path(paper_type) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, paper_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
