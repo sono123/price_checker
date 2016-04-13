@@ -53,6 +53,18 @@ class BusinessCardsController < ApplicationController
         @price = result.price.to_s
         @cost = result.cost.to_s
         @id = result.id.to_s
+        @width = trim(result.dimension.width).to_s + '"'
+        @height = trim(result.dimension.height).to_s + '"'
+        @paper_thickness = result.paper_type.thickness.to_s
+        @paper_name = result.paper_type.name.split.map(&:capitalize).join(' ')
+        @paper_color = result.paper_type.color.split.map(&:capitalize).join(' ')
+        @ink_front = result.ink_color.front.to_s
+        @ink_back = result.ink_color.back.to_s
+        @print_method = result.print_method.print_method.split.map(&:capitalize).join(' ')
+        @quantity = result.quantity.quantity.to_s
+        @box_count = result.box_count.box_count.to_s
+        @box_price = (result.price / result.box_count.box_count).to_s
+
         render :template => 'static_pages/search'
       else
         similar = BusinessCard.similar_products(params)
@@ -92,6 +104,12 @@ class BusinessCardsController < ApplicationController
   end
 
   private
+
+    def trim(num)
+      int = num.to_i
+      flot = num
+      int == flot ? int : flot
+    end
 
     def business_card_params
       params.require(:business_card).permit(:print_method_id, 

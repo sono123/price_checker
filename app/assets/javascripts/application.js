@@ -57,7 +57,16 @@ $(document).ready(function() {
 		$('.select-error').html("<p class='alert-error'>Please make sure all options are selected.</p>");
 	};
 
-	// var selectMessage = false;
+	var replaced = $("body").html().replace(/Cmyk/g,'CMYK');
+	$("body").html(replaced);
+
+
+	$(".back-button").on( "click", function(event) {
+		event.preventDefault();
+		console.log("reached back"); //get rid of
+	  window.history.back();
+	});
+
 
 	$( ".small-btn-search" ).on( "click", function(event) {
 

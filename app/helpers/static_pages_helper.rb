@@ -81,9 +81,11 @@ module StaticPagesHelper
 
 	def overhead
 		if @price.to_i < 120
-			"35"
+			"55"
+		elsif @price.to_i < 250
+			"75"
 		else
-			"45"
+			"105"
 		end
 	end
 

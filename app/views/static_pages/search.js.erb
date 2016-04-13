@@ -1,3 +1,4 @@
+
 $('.price').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'><i class='edit glyphicon glyphicon-info-sign'></i></a> <span class='price'>$<%= j @price %></span>");
 $('.cost').replaceWith("<a class='edit-price'href='/business_cards/<%= j @id %>/edit'><i class='edit glyphicon glyphicon-info-sign'></i></a> <span class='cost'>- $<%= j @cost %></span>");
 $('.overhead').replaceWith("<span class='overhead'>- $<%= j overhead %></span>");
@@ -8,6 +9,18 @@ $('.alert').empty();
 console.log("<%= j @price %>");
 
 
+$('#quote-dimensions').append("<%= j @width %> x <%= j @height %>");
+$('#quote-paper').append("#<%= j @paper_thickness %>lb <%= j @paper_name %> <%= j @paper_color %> (heavyweight)");
+$('#quote-ink').append("<%= j @ink_front %>/<%= j @ink_back %> <%= j @print_method %>");
+$('#quote-quantity').append("<%= j @quantity %>");
+$('#quote-box-count').append("<%= j pluralize( @box_count, 'Box') %>");
+$('#quote-price').append("<%= j @box_price %>");
+$('#quote-total').append("<%= j @price %>");
+
+var replaceCmyk = $("#quote-text").html().replace(/Cmyk/g,'CMYK');
+$("#quote-text").html(replaceCmyk);
+
+
 $('i.expand-details').removeClass("hide");
 $('.details-line').removeClass("hide");
 $('.under-line').addClass("hide");
@@ -16,4 +29,5 @@ $('i.detail-icons').click(function() {
   $('.details').toggleClass( "hide" );
   $('i.detail-icons').toggleClass( "hide" );
 });
+
 
