@@ -16,6 +16,7 @@ $('#quote-quantity').append("<%= j @quantity %>");
 $('#quote-box-count').append("<%= j pluralize( @box_count, 'Box') %>");
 $('#quote-price').append("<%= j @box_price %>");
 $('#quote-total').append("<%= j @price %>");
+$('#quote-turnaround').append("<%= j @turnaround %>");
 
 var replaceCmyk = $("#quote-text").html().replace(/Cmyk/g,'CMYK');
 $("#quote-text").html(replaceCmyk);

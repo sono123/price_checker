@@ -64,6 +64,8 @@ class BusinessCardsController < ApplicationController
         @quantity = result.quantity.quantity.to_s
         @box_count = result.box_count.box_count.to_s
         @box_price = (result.price / result.box_count.box_count).to_s
+        @turnaround = turnaround_time(result.print_method.print_method.downcase)
+
 
         render :template => 'static_pages/search'
       else
@@ -104,6 +106,21 @@ class BusinessCardsController < ApplicationController
   end
 
   private
+
+    def turnaround_time(print_method)
+      case print_method
+      when "pantone offset"
+        "2-3 Business Days"
+      when "cmyk offset"
+        "3-4 Business Days"
+      when "letterpress"
+        "2-3 Weeks"
+      when "digital"
+        "24-48 Hours"
+      else
+        "2-3 Business Days"
+      end
+    end
 
     def trim(num)
       int = num.to_i
