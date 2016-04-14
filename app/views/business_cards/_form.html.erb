@@ -14,7 +14,7 @@
 
   <tr>
     <td class="col-sm-1"><strong><span>Print Method:</span></strong></td>
-    <td class="col-sm-1 text-right"><%= @business_card.print_method.print_method %></td>
+    <td class="col-sm-1 text-right"><%= multi_capitalize(@business_card.print_method.print_method) %></td>
   </tr>
 
   <tr>
@@ -39,7 +39,7 @@
 
   <tr>
     <td class="col-sm-1"><strong><span>Coatings:</span></strong></td>
-    <td class="col-sm-1 text-right"><%= @business_card.coating.front %> / <%= @business_card.coating.back %></td>
+    <td class="col-sm-1 text-right"><%= multi_capitalize(@business_card.coating.front) %> / <%= multi_capitalize(@business_card.coating.back) %></td>
   </tr>
 
   <tr>
@@ -54,12 +54,12 @@
 
   <tr>
     <td class="col-sm-1"><strong><span>Metal:</span></strong></td>
-    <td class="col-sm-1 text-right"><%= @business_card.metal.front %> / <%= @business_card.metal.back %></td>
+    <td class="col-sm-1 text-right"><%= multi_capitalize(@business_card.metal.front) %> / <%= multi_capitalize(@business_card.metal.back) %></td>
   </tr>
 
   <tr>
     <td class="col-sm-1"><strong><span>Paper Type:</span></strong></td>
-    <td class="col-sm-1 text-right"><%= @business_card.paper_type.brand %> - <%= @business_card.paper_type.name %> - <%= @business_card.paper_type.color %> - <%= @business_card.paper_type.thickness.to_s %>lb</td>
+    <td class="col-sm-1 text-right"><%= multi_capitalize(@business_card.paper_type.name) %> - <%= multi_capitalize(@business_card.paper_type.color) %> - <%= @business_card.paper_type.thickness.to_s %>lb</td>
   </tr>
 
 </table>
