@@ -9,10 +9,16 @@ class BusinessCardsController < ApplicationController
       redirect_to root_path
     else
       @business_card = BusinessCard.new(business_card_params)
+      puts "******BUSINESS CARD NEW*********"
+      puts params["business_card"]["price"]
+      puts params["business_card"]["cost"]
+      
       if @business_card.save
         flash[:success] = "Price successfully added."
+        puts "******BUSINESS CARD SAVED*********"
         redirect_to root_path
       else
+        puts "******BUSINESS CARD NOT SAVED*********"
         flash[:error] = "Business card could not be added."
         flash[:alert] = @business_card.errors
         flash[:print_method_id] = params["business_card"]["print_method_id"]

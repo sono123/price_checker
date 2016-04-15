@@ -5,16 +5,16 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'print_method' %>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'print_method_id', options_for_select( print_methods, print_methods[flash[:print_method_id].to_i] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'print_method_id', options_for_select( print_methods, print_methods[flash[:print_method_id].to_i] ), {}, {"ng-model" => "data.print_method_id", "class" => "form-control new-form-control print_method_id", 'dir' => 'rtl'} %>
 		<% else %>
-			<%= b.select 'print_method_id', options_for_select(print_methods), {}, {"ng-model" => "data.print_method_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'print_method_id', options_for_select(print_methods), {}, {"ng-model" => "data.print_method_id", "class" => "form-control new-form-control print_method_id", 'dir' => 'rtl'} %>
 		<% end %>
 	</div>
 
 	<div class="form-group new-form-group">
 		<%= b.label 'ink_colors' %>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'ink_color_id', options_for_select( ink_colors, ink_colors[flash[:ink_color_id].to_i] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'ink_color_id', options_for_select( ink_colors, ink_colors[flash[:ink_color_id].to_i] ), {}, {"ng-model" => "data.ink_color_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'ink_color_id', options_for_select(ink_colors), {}, {"ng-model" => "data.ink_color_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -23,7 +23,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'bleeds' %>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'bleed_id', options_for_select( bleeds, bleeds[flash[:bleed_id].to_i - 1] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'bleed_id', options_for_select( bleeds, bleeds[flash[:bleed_id].to_i - 1] ), {}, {"ng-model" => "data.bleed_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'bleed_id', options_for_select(bleeds), {}, {"ng-model" => "data.bleed_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -32,7 +32,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'raised_inks' %>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'raised_ink_id', options_for_select( raised_inks, raised_inks[flash[:raised_ink_id].to_i - 1] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'raised_ink_id', options_for_select( raised_inks, raised_inks[flash[:raised_ink_id].to_i - 1] ), {}, {"ng-model" => "data.raised_ink_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'raised_ink_id', options_for_select(raised_inks), {}, {"ng-model" => "data.raised_ink_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -41,7 +41,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'dimensions' %><a class="edit-menu" href="/dimensions"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'dimension_id', options_for_select( dimensions, dimensions[flash[:dimension_id].to_i - 1] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'dimension_id', options_for_select( dimensions, dimensions[flash[:dimension_id].to_i - 1] ), {}, {"ng-model" => "data.dimensions_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'dimension_id', options_for_select(dimensions), {}, {"ng-model" => "data.dimensions_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -50,7 +50,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'coatings' %><a class="edit-menu" href="/coatings"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'coating_id', options_for_select( coatings, coatings[flash[:coating_id].to_i - 1] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'coating_id', options_for_select( coatings, coatings[flash[:coating_id].to_i - 1] ), {}, {"ng-model" => "data.coating_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'coating_id', options_for_select(coatings), {}, {"ng-model" => "data.coating_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -59,7 +59,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'quantities' %><a class="edit-menu" href="/quantities"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'quantity_id', options_for_select( quantities, quantities[flash[:quantity_id].to_i] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'quantity_id', options_for_select( quantities, quantities[flash[:quantity_id].to_i] ), {}, {"ng-model" => "data.quantity_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'quantity_id', options_for_select(quantities), {}, {"ng-model" => "data.quantity_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -68,7 +68,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'box_counts' %><a class="edit-menu" href="/box_counts"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'box_count_id', options_for_select( box_counts, box_counts[flash[:box_count_id].to_i] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'box_count_id', options_for_select( box_counts, box_counts[flash[:box_count_id].to_i] ), {}, {"ng-model" => "data.box_count_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 		<%= b.select 'box_count_id', options_for_select(box_counts), {}, {"ng-model" => "data.box_count_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -77,7 +77,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'metals' %><a class="edit-menu" href="/metals"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'metal_id', options_for_select( metals, metals[flash[:metal_id].to_i - 1] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'metal_id', options_for_select( metals, metals[flash[:metal_id].to_i - 1] ), {}, {"ng-model" => "data.metal_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'metal_id', options_for_select(metals), {}, {"ng-model" => "data.metal_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>
@@ -86,7 +86,7 @@
 	<div class="form-group new-form-group">
 		<%= b.label 'paper_types' %><a class="edit-menu" href="/paper_types"><i class="edit glyphicon glyphicon-plus"></i></a>
 		<% if flash[:error_redirect] == true %>
-			<%= b.select 'paper_type_id', options_for_select( paper_types, paper_types[flash[:paper_type_id].to_i] ), {}, {"class" => "form-control new-form-control", 'dir' => 'rtl'} %>
+			<%= b.select 'paper_type_id', options_for_select( paper_types, paper_types[flash[:paper_type_id].to_i] ), {}, {"ng-model" => "data.paper_type_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% else %>
 			<%= b.select 'paper_type_id', options_for_select(paper_types), {}, {"ng-model" => "data.paper_type_id", "class" => "form-control new-form-control", 'dir' => 'rtl'} %>
 		<% end %>

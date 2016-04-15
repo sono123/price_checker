@@ -2,12 +2,12 @@
 
 	<div class="form-group search-form-group">
 		<%= label_tag 'print_method', 'Print Method' %>
-		<%= select_tag 'print_method_id', options_for_select(print_methods), {"ng-model" => "data.print_method_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
+		<%= select_tag 'print_method_id', options_for_select(print_methods), {"ng-model" => "data.print_method_id", "class" => "form-control search-form-control print_method_id", 'dir' => 'rtl'} %>
 	</div>
 
 	<div class="form-group search-form-group">
 		<%= label_tag 'ink_colors', 'Ink Colors' %>
-		<%= select_tag 'ink_color_id', options_for_select(ink_colors), {"ng-model" => "data.ink_color_id", "class" => "form-control search-form-control", 'dir' => 'rtl'} %>
+		<%= select_tag 'ink_color_id', options_for_select(ink_colors), {"ng-model" => "data.ink_color_id", "class" => "form-control search-form-control print_method_id", 'dir' => 'rtl'} %>
 	</div>
 
 	<div class="form-group search-form-group">

@@ -2,6 +2,7 @@ module StaticPagesHelper
 
 	def print_methods
 		print_methods = @print_methods.map{ |m| [m.print_method.split.map(&:capitalize).join(' '), m.id] }
+		print_methods.each { |arr| arr[0].sub!("Cmyk", "CMYK")  }
 		print_methods.unshift(["Select", 0])
 	end
 
@@ -59,6 +60,7 @@ module StaticPagesHelper
 
 	def coatings
 		coatings = @coatings.map { |i| [i.front.capitalize + " / " + i.back.capitalize, i.id] }
+		coatings.each { |arr| arr[0].gsub!("Uv", "UV")  }
 		coatings[0] = ["None", 1]
 		coatings
 	end
@@ -90,7 +92,7 @@ module StaticPagesHelper
 	end
 
 	def multi_capitalize(string)
-		string.split.map(&:capitalize).join(' ')
+		caps = string.split.map(&:capitalize).join(' ').sub("Cmyk", "CMYK").gsub("Uv", "UV")
 	end
 
 	def margin

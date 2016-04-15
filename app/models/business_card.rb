@@ -26,7 +26,6 @@ class BusinessCard < ActiveRecord::Base
                             :quantity_id, 
                             :box_count_id, 
                             :paper_type_id, 
-                            greater_than: 0, 
                             on: :create
 
   def self.search(q)

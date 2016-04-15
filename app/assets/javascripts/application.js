@@ -42,13 +42,7 @@ angular.module("bcApp", [])
 })(window.angular);
 
 
-// $( ".small-btn-search" ).on( "click", function(event) {
-// 	if ( $('select[name=print_method_id]').val() == "0" ) {
-// 		alert($('select[name=print_method_id]').val());
-// 		event.preventDefault();
-// 		$( "#print_method_id" ).css( "color", "red" );
-// 	}
-// });
+
 
 
 $(document).ready(function() {
@@ -56,9 +50,6 @@ $(document).ready(function() {
 	var selectError = function() {
 		$('.select-error').html("<p class='alert-error'>Please make sure all options are selected.</p>");
 	};
-
-	var replaced = $("body").html().replace(/Cmyk/g,'CMYK');
-	$("body").html(replaced);
 
 
 	$(".back-button").on( "click", function(event) {
@@ -121,20 +112,12 @@ $(document).ready(function() {
 		};
 	});
 
+	// var replaced = $(".edit-price-table").html().replace(/Cmyk/g,'CMYK');
+	// $(".edit-price-table").html(replaced);
+
 });
 
-// $(window).bind("load", function() {
-// 	$( ".search" ).on( "click", function(event) {
-// 		if ( $('select[name=print_method_id]').val() == "0" ) {
-// 			event.preventDefault();
-// 			$( "#print_method_id" ).css( "color", "red" );
-// 		};
-// 	});
-// }):
 
-// $("#business_card_print_method_id option").attr("selected", "1");
-
-// $('#business_card_print_method_id option[value=2]').attr("selected", "selected");
 
 
 
