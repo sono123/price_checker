@@ -161,7 +161,7 @@ class BusinessCardsController < ApplicationController
         finish_text.chomp!(', ')
         finish_text
       else
-        false
+        "None"
       end
     end
 
