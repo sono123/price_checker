@@ -11,7 +11,8 @@ console.log("<%= j @price %>");
 
 $('#quote-dimensions').append("<%= j @width %> x <%= j @height %>");
 $('#quote-paper').append("#<%= j @paper_thickness %>lb <%= j @paper_name %> <%= j @paper_color %> (heavyweight)");
-$('#quote-ink').append("<%= j @ink_front %>/<%= j @ink_back %> <%= j @print_method %>");
+$('#quote-ink').append("<%= j @ink %>");
+$('#quote-finishing').append("<%= @finishing %>");
 $('#quote-quantity').append("<%= j @quantity %>");
 $('#quote-box-count').append("<%= j pluralize( @box_count, 'Box') %>");
 $('#quote-price').append("<%= j @box_price %>");

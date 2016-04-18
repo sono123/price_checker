@@ -72,149 +72,189 @@ class BusinessCard < ActiveRecord::Base
     end
   end
 
+  def has_coating?
+    if self.coating.id > 1
+      front = self.coating.front.downcase
+      back = self.coating.back.downcase
+      coating = [front, back].reject { |c| c == "none" }
+
+      if front == "none"
+        front = "0"
+      else
+        front = "1"
+      end
+
+      if back == "none"
+        back = "0"
+      else
+        back = "1"
+      end
+
+      "#{front}/#{back} #{multi_capitalize(coating[0])}"
+    end
+  end
+
+  def has_metal?
+    if self.metal.id > 1
+      front = self.metal.front.downcase
+      back = self.metal.back.downcase
+      metal = [front, back].reject { |c| c == "none" }
+
+      if front == "none"
+        front = "0"
+      else
+        front = "1"
+      end
+
+      if back == "none"
+        back = "0"
+      else
+        back = "1"
+      end
+
+      "#{front}/#{back} #{multi_capitalize(metal[0])}"
+    end
+  end
+
+  def has_raised_ink?
+    if self.raised_ink.id > 1
+      "#{self.raised_ink.front}/#{self.raised_ink.back}"
+    end
+  end
+
+  def has_bleed?
+    if self.bleed.id > 1
+      "#{self.bleed.front}/#{self.bleed.back}"
+    end
+  end
+
 
 
   private
 
-
-  def self.generate_score(bc, target)
-    # if bc.print_method.print_method.downcase == "pantone offset"
-    #   generate_pantone_offset_score(bc, target)
-    # elsif bc.print_method.print_method.downcase == "cmyk offset"
-    #   generate_cmyk_offset_score(bc, target)
-    # elsif bc.print_method.print_method.downcase == "letterpress"
-    #   generate_letterpress_score(bc, target)
-    # else
-    #   generate_digital_score(bc, target)
-    # end
-    generate_pantone_offset_score(bc, target)
-  end
-
-  def self.generate_pantone_offset_score(bc, target)
-    score = []
-    score << self.pantone_ink_color_score(bc, target)
-    score << self.pantone_bleed_score(bc) if target["bleed"]["front"] == "true" || target["bleed"]["back"] == "true"
-    score << self.pantone_raised_ink_score(bc, target) if target["raised_ink"]["front"].to_i > 0 || target["raised_ink"]["back"].to_i > 0
-    score << self.pantone_dimension_score(bc, target)
-    score << self.pantone_coating_score(bc, target) if target["coating"]["front"] != "none" || target["coating"]["back"] != "none"
-    sum = score.inject(:+)
-  end
-
-  # # implementation coming
-  # def generate_cmyk_offset_score(bc, target)
-  # end
-  # # implementation coming
-  # def generate_letterpress_score(bc, target)
-  # end
-  # # implementation coming
-  # def generate_digital_score(bc, target)
-  # end
-
-  def self.pantone_ink_color_score(b, t)
-    b_colors = b.ink_color.front + b.ink_color.back
-    t_colors = t["ink_color"]["front"].to_i + t["ink_color"]["back"].to_i
-    diff = nil
-    pic_score = nil
-
-    if b_colors > t_colors
-      diff = b_colors - t_colors
-    else
-      diff = t_colors - b_colors
+    def multi_capitalize(string)
+      caps = string.split.map(&:capitalize).join(' ').sub("Cmyk", "CMYK").gsub("Uv", "UV")
     end
 
-    case diff
-    when 0
-      pic_score = 15
-    when 1
-      pic_score = 10
-    when 2
-      pic_score = 5
-    when 3..9
-      pic_score = 3
-    else
-      pic_score = 0
+    def self.generate_score(bc, target)
+      generate_pantone_offset_score(bc, target)
     end
-      
-    pic_score
-  end
 
-  def self.pantone_bleed_score(b)
-    pb_score = 0
+    def self.generate_pantone_offset_score(bc, target)
+      score = []
+      score << self.pantone_ink_color_score(bc, target)
+      score << self.pantone_bleed_score(bc) if target["bleed"]["front"] == "true" || target["bleed"]["back"] == "true"
+      score << self.pantone_raised_ink_score(bc, target) if target["raised_ink"]["front"].to_i > 0 || target["raised_ink"]["back"].to_i > 0
+      score << self.pantone_dimension_score(bc, target)
+      score << self.pantone_coating_score(bc, target) if target["coating"]["front"] != "none" || target["coating"]["back"] != "none"
+      sum = score.inject(:+)
+    end
 
-    if b.bleed.front == true || b.bleed.back == true
-      pb_score = 15
-    else
+    def self.pantone_ink_color_score(b, t)
+      b_colors = b.ink_color.front + b.ink_color.back
+      t_colors = t["ink_color"]["front"].to_i + t["ink_color"]["back"].to_i
+      diff = nil
+      pic_score = nil
+
+      if b_colors > t_colors
+        diff = b_colors - t_colors
+      else
+        diff = t_colors - b_colors
+      end
+
+      case diff
+      when 0
+        pic_score = 15
+      when 1
+        pic_score = 10
+      when 2
+        pic_score = 5
+      when 3..9
+        pic_score = 3
+      else
+        pic_score = 0
+      end
+        
+      pic_score
+    end
+
+    def self.pantone_bleed_score(b)
       pb_score = 0
+
+      if b.bleed.front == true || b.bleed.back == true
+        pb_score = 15
+      else
+        pb_score = 0
+      end
     end
+
+    def self.pantone_raised_ink_score(b, t)
+      b_colors = b.raised_ink.front + b.raised_ink.back
+      t_colors = t["raised_ink"]["front"].to_i + t["raised_ink"]["back"].to_i
+      diff = nil
+      pri_score = nil
+
+      if b_colors > t_colors
+        diff = b_colors - t_colors
+      else
+        diff = t_colors - b_colors
+      end
+
+      case diff
+      when 0
+        pri_score = 15
+      when 1
+        pri_score = 10
+      when 2
+        pri_score = 5
+      when 3..9
+        pri_score = 3
+      else
+        pri_score = 0
+      end
+        
+      pri_score
+    end
+
+    def self.pantone_dimension_score(b, t)
+      b_size = b.dimension.width.to_i + b.dimension.height.to_i
+      t_size = t["dimension"]["width"].to_i + t["dimension"]["height"].to_i
+      diff = nil
+      pd_score = nil
+
+      if b_size > t_size
+        diff = b_size - t_size
+      else
+        diff = t_size - b_size
+      end
+
+      case diff
+      when 0
+        pd_score = 15
+      when 1
+        pd_score = 10
+      when 2
+        pd_score = 5
+      when 3..9
+        pd_score = 3
+      else
+        pd_score = 0
+      end
+        
+      pd_score
+    end
+
+    def self.pantone_coating_score(b, t)
+      if b.coating.front == t["coating"]["front"]
+        pc_score = 15
+      elsif b.coating.back == t["coating"]["back"]
+        pc_score = 15
+      else
+        pc_score = 0
+      end
+    end
+
   end
-
-  def self.pantone_raised_ink_score(b, t)
-    b_colors = b.raised_ink.front + b.raised_ink.back
-    t_colors = t["raised_ink"]["front"].to_i + t["raised_ink"]["back"].to_i
-    diff = nil
-    pri_score = nil
-
-    if b_colors > t_colors
-      diff = b_colors - t_colors
-    else
-      diff = t_colors - b_colors
-    end
-
-    case diff
-    when 0
-      pri_score = 15
-    when 1
-      pri_score = 10
-    when 2
-      pri_score = 5
-    when 3..9
-      pri_score = 3
-    else
-      pri_score = 0
-    end
-      
-    pri_score
-  end
-
-  def self.pantone_dimension_score(b, t)
-    b_size = b.dimension.width.to_i + b.dimension.height.to_i
-    t_size = t["dimension"]["width"].to_i + t["dimension"]["height"].to_i
-    diff = nil
-    pd_score = nil
-
-    if b_size > t_size
-      diff = b_size - t_size
-    else
-      diff = t_size - b_size
-    end
-
-    case diff
-    when 0
-      pd_score = 15
-    when 1
-      pd_score = 10
-    when 2
-      pd_score = 5
-    when 3..9
-      pd_score = 3
-    else
-      pd_score = 0
-    end
-      
-    pd_score
-  end
-
-  def self.pantone_coating_score(b, t)
-    if b.coating.front == t["coating"]["front"]
-      pc_score = 15
-    elsif b.coating.back == t["coating"]["back"]
-      pc_score = 15
-    else
-      pc_score = 0
-    end
-  end
-
-end
 
 
 

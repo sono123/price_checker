@@ -12,7 +12,7 @@ class BusinessCardsController < ApplicationController
       puts "******BUSINESS CARD NEW*********"
       puts params["business_card"]["price"]
       puts params["business_card"]["cost"]
-      
+
       if @business_card.save
         flash[:success] = "Price successfully added."
         puts "******BUSINESS CARD SAVED*********"
@@ -64,14 +64,15 @@ class BusinessCardsController < ApplicationController
         @paper_thickness = result.paper_type.thickness.to_s
         @paper_name = result.paper_type.name.split.map(&:capitalize).join(' ')
         @paper_color = result.paper_type.color.split.map(&:capitalize).join(' ')
+        @ink = ink(result)
         @ink_front = result.ink_color.front.to_s
         @ink_back = result.ink_color.back.to_s
+        @finishing = finishing(result)
         @print_method = result.print_method.print_method.split.map(&:capitalize).join(' ')
         @quantity = result.quantity.quantity.to_s
         @box_count = result.box_count.box_count.to_s
         @box_price = (result.price / result.box_count.box_count).to_s
         @turnaround = turnaround_time(result.print_method.print_method.downcase)
-
 
         render :template => 'static_pages/search'
       else
@@ -82,6 +83,7 @@ class BusinessCardsController < ApplicationController
         else
           @count = 0
         end
+
         render :template => 'static_pages/new_bc'
       end
 
@@ -128,10 +130,39 @@ class BusinessCardsController < ApplicationController
       end
     end
 
+    def ink(result)
+      ink_text = ""
+      front = result.ink_color.front.to_s
+      back = result.ink_color.back.to_s
+      print_method = multi_capitalize(result.print_method.print_method)
+
+      ink_text << "#{front}/#{back} #{print_method}"
+      ink_text << ", Raised Ink" if result.has_raised_ink?
+      ink_text << ", Full Bleed" if result.has_bleed?
+
+      ink_text
+    end
+
     def trim(num)
       int = num.to_i
       flot = num
       int == flot ? int : flot
+    end
+
+    def multi_capitalize(string)
+      caps = string.split.map(&:capitalize).join(' ').sub("Cmyk", "CMYK").gsub("Uv", "UV")
+    end
+
+    def finishing(result) #need boolean instance methods for has_coating?, has_metal?, has_raised_ink?
+      finish_text = ""
+      if result.has_coating? || result.has_metal?
+        finish_text << "#{result.has_coating?}, " if result.has_coating?
+        finish_text << "#{multi_capitalize(result.has_metal?)}, " if result.has_metal?
+        finish_text.chomp!(', ')
+        finish_text
+      else
+        false
+      end
     end
 
     def business_card_params
