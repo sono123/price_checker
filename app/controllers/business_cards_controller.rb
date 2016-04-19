@@ -1,4 +1,5 @@
 class BusinessCardsController < ApplicationController
+  include ActionView::Helpers::NumberHelper
 
   def create
     search = BusinessCard.search(params["business_card"])
@@ -71,7 +72,7 @@ class BusinessCardsController < ApplicationController
         @print_method = result.print_method.print_method.split.map(&:capitalize).join(' ')
         @quantity = result.quantity.quantity.to_s
         @box_count = result.box_count.box_count.to_s
-        @box_price = (result.price / result.box_count.box_count).to_s
+        @box_price = number_to_currency(result.price.to_f / result.box_count.box_count).to_s
         @turnaround = turnaround_time(result.print_method.print_method.downcase)
 
         render :template => 'static_pages/search'
