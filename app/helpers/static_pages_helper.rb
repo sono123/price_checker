@@ -1,7 +1,7 @@
 module StaticPagesHelper
 
 	def print_methods
-		print_methods = @print_methods.map{ |m| [m.print_method.split.map(&:capitalize).join(' '), m.id] }
+		print_methods = @print_methods.map{ |m| [multi_capitalize(m.print_method), m.id] }
 		print_methods.each { |arr| arr[0].sub!("Cmyk", "CMYK")  }
 		print_methods.unshift(["Select", 0])
 	end
@@ -54,7 +54,7 @@ module StaticPagesHelper
 	end
 
 	def paper_types
-		paper_types = @paper_types.map { |i| [i.name.split.map(&:capitalize).join(' ') + " / " + i.color.split.map(&:capitalize).join(' ') + " / " + i.thickness.to_s + "lb", i.id] }
+		paper_types = @paper_types.map { |i| [multi_capitalize(i.name) + " / " + multi_capitalize(i.color) + " / " + i.thickness.to_s + "lb", i.id] }
 		paper_types.unshift(["Select", 0])
 	end
 
