@@ -59,11 +59,17 @@ module StaticPagesHelper
 	end
 
 	def coatings
-		coatings = @coatings.map { |i| [i.front.capitalize + " / " + i.back.capitalize, i.id] }
-		coatings.each { |arr| arr[0].gsub!("Uv", "UV")  }
+		coatings = @coatings.map { |i| [multi_capitalize(i.front) + " / " + multi_capitalize(i.back), i.id] }
 		coatings[0] = ["None", 1]
 		coatings
 	end
+
+	# def coatings
+	# 	coatings = @coatings.map { |i| [i.front.capitalize + " / " + i.back.capitalize, i.id] }
+	# 	coatings.each { |arr| arr[0].gsub!("Uv", "UV")  }
+	# 	coatings[0] = ["None", 1]
+	# 	coatings
+	# end
 
 	def quantities
 		quantities = @quantities.map { |i| [i.quantity, i.id] }
