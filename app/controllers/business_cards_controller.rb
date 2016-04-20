@@ -16,6 +16,7 @@ class BusinessCardsController < ApplicationController
 
       if @business_card.save
         flash[:success] = "Price successfully added."
+        @business_card.update_attribute(:user_id, session[:user_id])
         puts "******BUSINESS CARD SAVED*********"
         redirect_to root_path
       else
