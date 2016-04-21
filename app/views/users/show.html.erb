@@ -41,7 +41,7 @@
 
 <table class="table index-tables">
   <tbody>
-    <% @user.business_cards.each do |business_card| %>
+    <% @user.business_cards.reverse.each do |business_card| %>
       <tr>
         <td><%= link_to "#{multi_capitalize(business_card.print_method.print_method)} - #{business_card.ink_color.front}/#{business_card.ink_color.back} x #{business_card.box_count.box_count}", edit_business_card_path(business_card) %><span class="space"></td>
         <td class="text-right"><span><%= link_to "<span class='glyphicon glyphicon-edit'></span>".html_safe, edit_business_card_path(business_card) %><span class="space"></span><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, business_card, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
