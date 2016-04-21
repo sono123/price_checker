@@ -85,6 +85,7 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
 }
 
@@ -527,7 +528,6 @@ aside {
 }
 
 .gravatar {
-  float: left;
   margin-right: 10px;
 }
 
@@ -601,6 +601,17 @@ input {
 			padding: 10px 0;
 			border-bottom: 1px solid $gray-lighter;
 		}
+}
+
+.user_name {
+	text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.activity-count {
+	border: 1px solid black;
+	height: 40px;
 }
 
 

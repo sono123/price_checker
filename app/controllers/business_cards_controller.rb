@@ -111,7 +111,7 @@ class BusinessCardsController < ApplicationController
 
   def destroy
     BusinessCard.find(params[:id]).destroy
-    flash[:success] = "User Deleted"
+    flash[:success] = "Business Card Deleted"
     redirect_to root_path
   end
 

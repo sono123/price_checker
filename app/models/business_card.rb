@@ -9,6 +9,7 @@ class BusinessCard < ActiveRecord::Base
   belongs_to :quantity
   belongs_to :box_count
   belongs_to :metal
+  belongs_to :user
 
   validates :price, 
             :cost, 
