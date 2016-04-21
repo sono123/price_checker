@@ -6,13 +6,35 @@
 
 <div class="row">
 	<h1 class="user_name"><%= @user.name %></h1>
-	<%= @user.business_cards.count %>
 </div>
 
 <div class="row">
-	<div class="col-md-4 activity-count"></div>
-	<div class="col-md-4 activity-count"></div>
-	<div class="col-md-4 activity-count"></div>
+	<div class="col-md-4 stats-circle">
+		<div class="circles center">
+			<p class="stats-titles">Entries</p>
+			<p class="stats-data"><%= @user.business_cards.count %></p>
+		</div>
+	</div>
+
+	<div class="col-md-4 stats-circle stats-circle-middle">
+		<div class="circles center">
+			<p class="stats-titles">Joined</p>
+			<p class="stats-data"><%= @user.created_at.strftime("%_m-%d-%Y") %></p>
+		</div>
+	</div>
+
+	<div class="col-md-4 stats-circle">
+		<div class="circles center">
+			<p class="stats-titles">Admin</p>
+			<p class="stats-data">
+				<% if @user.admin? %>
+					Yes
+				<% else %>
+					No
+				<% end %>
+			</p>
+		</div>
+	</div>
 </div>
 
 <h1 class="main-header">All Entries</h1>
