@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+    @business_cards = @user.business_cards.paginate(page: params[:page], per_page: 25).order(created_at: :desc)
   end
 
   def new

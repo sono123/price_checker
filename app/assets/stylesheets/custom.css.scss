@@ -636,6 +636,10 @@ input {
 	margin-top: 0px;
 }
 
+.pagination > li > a {
+	border: none;
+}
+
 
 @media (max-width: 1200px) {
 	.details-line {
