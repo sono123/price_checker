@@ -64,6 +64,7 @@ $(document).ready(function() {
 		var selectMessage = false;
 		
 		$(".select-error").empty();
+		$('.alert-success').addClass("hide");
 		$( "select" ).css( "color", "#3277b3" );
 		
 		if ( $('select[name=print_method_id]').val() == "0" ) {
