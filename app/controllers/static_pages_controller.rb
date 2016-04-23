@@ -40,4 +40,8 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def message
+    redirect_to root_path
+  end
+
 end

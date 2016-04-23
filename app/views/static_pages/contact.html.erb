@@ -4,4 +4,9 @@
 
 <p>Report any bugs or issues here.</p>
 
-<p>Form here...</p>
+<%= form_tag('/message', :method => "post", :class => "message") do %>
+	<%= text_area_tag 'message' %>
+	<%= submit_tag 'Submit', class: "btn small-btn-style homepage-button small-btn-search" %>
+<% end %>
+
+<%= button_to 'Back', root_path, method: :get, class: "btn small-btn-style cancel back-button cancel-message" %>

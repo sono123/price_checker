@@ -3,9 +3,9 @@
 <h1>Pending Activations</h1>
 
 
-<% if @pending_activations.nil? %>
+<% if @pending_activations.count == 0 %>
 
-	<h3>There are no Pending Users</h3>
+	<h3 class="center">There are no pending user activations</h3>
 	
 <% else %>
 
