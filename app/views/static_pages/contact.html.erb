@@ -2,11 +2,9 @@
 
 <h1>Contact</h1>
 
-<p>Report any bugs or issues here.</p>
-
 <%= form_tag('/message', :method => "post", :class => "message") do %>
-	<%= text_area_tag 'message' %>
-	<%= submit_tag 'Submit', class: "btn small-btn-style homepage-button small-btn-search" %>
+		<%= text_area_tag 'message', nil, class: "form-control", size: "25x10", placeholder: "Report any bugs here." %>
+		<%= submit_tag 'Submit', class: "btn small-btn-style homepage-button small-btn-search" %>
 <% end %>
 
 <%= button_to 'Back', root_path, method: :get, class: "btn small-btn-style cancel back-button cancel-message" %>
