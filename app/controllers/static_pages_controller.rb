@@ -41,6 +41,13 @@ class StaticPagesController < ApplicationController
   end
 
   def message
+    @message = params[:message]
+    puts "*" * 100
+    p params
+    puts "*" * 100
+    @user = current_user
+    @user.send_contact_email(@message)
+    flash[:success] = "Your message has been sent."
     redirect_to root_path
   end
 

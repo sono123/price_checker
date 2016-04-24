@@ -59,6 +59,11 @@ class User < ActiveRecord::Base
 		UserMailer.account_activation(self).deliver_now
 	end
 
+	# Sends email from contact form.
+	def send_contact_email(message)
+		UserMailer.contact_email(self, message).deliver_now
+	end
+
 	# Sets the password reset attributes.
 	def create_reset_digest
 		self.reset_token = User.new_token
