@@ -19,6 +19,6 @@ class UserMailer < ApplicationMailer
   def contact_email(user, message)
     @user = user
     @message = message
-    mail to: "steveono@gmail.com", subject: "Password Reset"
+    mail to: "steveono@gmail.com", subject: "Message From Price Checker"
   end
 end
