@@ -45,10 +45,18 @@ class StaticPagesController < ApplicationController
     puts "*" * 100
     p params
     puts "*" * 100
-    @user = current_user
-    @user.send_contact_email(@message)
-    flash[:success] = "Your message has been sent."
-    redirect_to root_path
+    puts "*" * 100
+    p params[:message].length
+    puts "*" * 100
+    if params[:message].length > 0
+      @user = current_user
+      @user.send_contact_email(@message)
+      flash[:success] = "Your message has been sent."
+      redirect_to root_path
+    else
+      flash[:error] = "Your message could not be sent."
+      render :template => 'static_pages/contact'
+    end
   end
 
 end
