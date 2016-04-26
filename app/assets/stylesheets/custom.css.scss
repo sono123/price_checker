@@ -660,6 +660,18 @@ input {
 	text-transform: uppercase;
 }
 
+.administrator {
+	font-weight: bold;
+}
+
+.login-btn {
+	margin-bottom: 7px;
+}
+
+.forgot-password {
+	float: right;
+}
+
 @media (max-width: 1200px) {
 	.details-line {
 	    width: 94%;
