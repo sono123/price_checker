@@ -19,6 +19,7 @@ html, body {
   height: 100%;
   font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* The html and body elements cannot have any padding or margin. */
+  /*background-image: url("background.svg");*/
 }
 
 .error, .alert-error {
@@ -203,6 +204,7 @@ p {
 		letter-spacing: .5px;
 		font-size: 1.3em;
 		/*text-decoration: underline;*/
+		background: transparent;
 	}
 	select {
 		-webkit-appearance:none;
@@ -644,6 +646,15 @@ input {
 	margin-top: 0px;
 }
 
+.jumbotron {
+	background: transparent;
+}
+
+.headliner {
+	font-weight: bold;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+}
 
 @media (max-width: 1200px) {
 	.details-line {
