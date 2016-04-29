@@ -2,7 +2,16 @@
 	<div class="container">
 		<%= link_to image_tag("Logo_Large.png", alt: "Shitter logo"), root_path, id: "logo-img" %>
 		<%= link_to "Price Checker", root_path, id: "logo" %>
-		<nav>
+		<div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+		<!-- <nav> -->
+		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li><%= link_to "Home",   root_path %></li>
 				<li><%= link_to "Help",   contact_path %></li>
@@ -25,7 +34,8 @@
 					<li><%= link_to "Log In", login_path %></li>
 				<% end %>
 			</ul>
-		</nav>
+		</div>
+		<!-- </nav> -->
 	</div>
 </header>
 

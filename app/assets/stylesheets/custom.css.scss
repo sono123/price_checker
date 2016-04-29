@@ -689,6 +689,26 @@ input {
 	.details-line {
 	    width: 96%;
 	}
+	.navbar-toggle {
+	    margin-top: 24px;
+	}
+	#navbar {
+			border-top: none;
+			box-shadow: none;
+			ul {
+				float: none;
+			}
+			li {
+				width: 100%;
+			}
+			.dropdown-menu li {
+				margin-top: 10px;
+    		margin-bottom: 10px;
+			}
+	}
+	.navbar ul {
+		padding: 0;
+	}
 }
 
 @media (max-width: 640px) {
