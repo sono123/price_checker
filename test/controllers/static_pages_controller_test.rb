@@ -22,8 +22,9 @@ class StaticPagesControllerTest < ActionController::TestCase
 
   test "should get contact" do
   	get :contact
-  	assert_response :success
-  	assert_select "title", "Contact | Price Checker Website"
+    assert_redirected_to login_url
+  	# assert_response :success
+  	# assert_select "title", "Contact | Price Checker Website"
   end
 
 end
