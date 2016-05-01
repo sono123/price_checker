@@ -1,6 +1,6 @@
 <% provide(:title, 'Contact') %>
 
-<h1>Contact</h1>
+<h1 class="contact-header">Contact</h1>
 
 <%= form_tag('/message', :method => "post", :class => "message") do %>
 		<%= text_area_tag 'message', nil, class: "form-control", size: "25x10", placeholder: "Report any bugs here." %>
