@@ -37,7 +37,28 @@
 <%= image_tag("add-attribute-form.png", class: "help-images") %>
 <br>
 
+<br>
 
+<h4 class="help-questions">Can't Find What You're Looking For?</h4>
+
+<% if current_user %>
+
+	<p>Please fill out the form below with any questions or issues you may have. We will get back in touch with you as soon as possible with an answer or resolution.</p>
+
+	<h1 class="contact-header">Contact</h1>
+
+	<%= form_tag('/message', :method => "post", :class => "message") do %>
+			<%= text_area_tag 'message', nil, class: "form-control", size: "25x10", placeholder: "Type your question here." %>
+			<%= submit_tag 'Submit', class: "btn small-btn-style homepage-button small-btn-search" %>
+	<% end %>
+
+	<%= button_to 'Back', root_path, method: :get, class: "btn small-btn-style cancel back-button cancel-message" %>
+
+<% else %>
+
+	<p>Please <%= link_to "log in", login_path %> when possible and fill out the form on this same page (help page). We will get back in touch with you as soon as possible with an answer or resolution.</p>
+
+<% end %>
 
 
 
