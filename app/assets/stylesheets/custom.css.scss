@@ -500,6 +500,12 @@ tr:first-child td {
 	@include box_sizing;
 }
 
+#help-page {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+
 
 /* sidebar */
 
