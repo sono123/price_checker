@@ -1,4 +1,8 @@
 <% provide(:title, "About") %>
 
-<h1>About</h1>
+<h1 class="about-header">About</h1>
+
+<p>This web app was designed exclusively as a tool for generating estimates for business cards. This is not a publicly accessible application, meaning no users will be registered unless they are employees of the proprietor's organization.</p>
+
+<p>For all qualified users, please <%= link_to "sign up", signup_path %> for the app in order to access its functionality. After signing up, you must wait for your approval from one of our administrators. This may take up to 48 hours. If you have any issues with the registration process, please visit our <%= link_to "help", help_path %> page for more information.</p>
 
