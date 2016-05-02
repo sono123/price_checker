@@ -23,7 +23,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	follow_redirect!
   	assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, count: 3
-    assert_select "a[href=?]", "/contact", count: 3
+    assert_select "a[href=?]", "/contact", count: 2
     assert_select "a[href=?]", about_path
   	assert_select "a[href=?]", logout_path
   	assert_select "a[href=?]", user_path(@user)
@@ -37,7 +37,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	follow_redirect!
   	assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, count: 3
-    assert_select "a[href=?]", "/contact", count: 3
+    assert_select "a[href=?]", "/contact", count: 2
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
