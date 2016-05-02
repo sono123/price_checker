@@ -7,6 +7,7 @@ User.create!(name: "Steve Ono",
 						 admin: true, 
 						 activated: true,
 						 activated_at: Time.zone.now)
+# Password has changed by now, so dont even bother...
 
 99.times do |n|
 	name = Faker::Name.name
