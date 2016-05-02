@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   before_action :logged_in_user, only: [:contact]
 
+  # This is the homepage.
   def home
 		@result = flash[:result]
   	@business_card = BusinessCard.new
@@ -16,6 +17,7 @@ class StaticPagesController < ApplicationController
     @metals = Metal.all
   end
 
+  # This is almost identical to the homepage. The main difference is that action is only hit when a server side validation fails for adding a new business card. Since the app has good client side validations, this action will rarely ever be hit.
   def error
     @result = flash[:result]
     @business_card = BusinessCard.new
@@ -41,14 +43,9 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  # This is for the contact form, which appears in a couple places on the app.
   def message
     @message = params[:message]
-    puts "*" * 100
-    p params
-    puts "*" * 100
-    puts "*" * 100
-    p params[:message].length
-    puts "*" * 100
     if params[:message].length > 0
       @user = current_user
       @user.send_contact_email(@message)

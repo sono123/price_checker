@@ -1,28 +1,20 @@
 class CoatingsController < ApplicationController
   before_action :set_coating, only: [:show, :edit, :update, :destroy]
 
-  # GET /coatings
-  # GET /coatings.json
   def index
     @coatings = Coating.all
   end
 
-  # GET /coatings/1
-  # GET /coatings/1.json
   def show
   end
 
-  # GET /coatings/new
   def new
     @coating = Coating.new
   end
 
-  # GET /coatings/1/edit
   def edit
   end
 
-  # POST /coatings
-  # POST /coatings.json
   def create
     @coating = Coating.new(coating_params)
 
@@ -37,8 +29,6 @@ class CoatingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /coatings/1
-  # PATCH/PUT /coatings/1.json
   def update
     respond_to do |format|
       if @coating.update(coating_params)
@@ -51,8 +41,6 @@ class CoatingsController < ApplicationController
     end
   end
 
-  # DELETE /coatings/1
-  # DELETE /coatings/1.json
   def destroy
     @coating.destroy
     respond_to do |format|

@@ -6,6 +6,7 @@ class PendingActivationsController < ApplicationController
 		@pending_activations = User.where(activated: false).paginate(page: params[:page])
 	end
 
+	# In this context, @user is not the current user, rather the user whose activation is pending.
 	def edit
 		@user = User.find(params[:id])
     @user.send_activation_email

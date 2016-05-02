@@ -1,23 +1,17 @@
 class DimensionsController < ApplicationController
   before_action :set_dimension, only: [:show, :edit, :update, :destroy]
 
-  # GET /dimensions
-  # GET /dimensions.json
   def index
     @dimensions = Dimension.all
   end
 
-  # GET /dimensions/new
   def new
     @dimension = Dimension.new
   end
 
-  # GET /dimensions/1/edit
   def edit
   end
 
-  # POST /dimensions
-  # POST /dimensions.json
   def create
     @dimension = Dimension.new(dimension_params)
 
@@ -32,8 +26,6 @@ class DimensionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dimensions/1
-  # PATCH/PUT /dimensions/1.json
   def update
     respond_to do |format|
       if @dimension.update(dimension_params)
@@ -46,8 +38,6 @@ class DimensionsController < ApplicationController
     end
   end
 
-  # DELETE /dimensions/1
-  # DELETE /dimensions/1.json
   def destroy
     @dimension.destroy
     respond_to do |format|

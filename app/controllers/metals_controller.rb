@@ -1,28 +1,20 @@
 class MetalsController < ApplicationController
   before_action :set_metal, only: [:show, :edit, :update, :destroy]
 
-  # GET /metals
-  # GET /metals.json
   def index
     @metals = Metal.all
   end
 
-  # GET /metals/1
-  # GET /metals/1.json
   def show
   end
 
-  # GET /metals/new
   def new
     @metal = Metal.new
   end
 
-  # GET /metals/1/edit
   def edit
   end
 
-  # POST /metals
-  # POST /metals.json
   def create
     @metal = Metal.new(metal_params)
 
@@ -37,8 +29,6 @@ class MetalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /metals/1
-  # PATCH/PUT /metals/1.json
   def update
     respond_to do |format|
       if @metal.update(metal_params)
@@ -51,8 +41,6 @@ class MetalsController < ApplicationController
     end
   end
 
-  # DELETE /metals/1
-  # DELETE /metals/1.json
   def destroy
     @metal.destroy
     respond_to do |format|

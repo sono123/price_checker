@@ -1,28 +1,20 @@
 class QuantitiesController < ApplicationController
   before_action :set_quantity, only: [:show, :edit, :update, :destroy]
 
-  # GET /quantities
-  # GET /quantities.json
   def index
     @quantities = Quantity.all
   end
 
-  # GET /quantities/1
-  # GET /quantities/1.json
   def show
   end
 
-  # GET /quantities/new
   def new
     @quantity = Quantity.new
   end
 
-  # GET /quantities/1/edit
   def edit
   end
 
-  # POST /quantities
-  # POST /quantities.json
   def create
     @quantity = Quantity.new(quantity_params)
 
@@ -37,8 +29,6 @@ class QuantitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /quantities/1
-  # PATCH/PUT /quantities/1.json
   def update
     respond_to do |format|
       if @quantity.update(quantity_params)
@@ -51,8 +41,6 @@ class QuantitiesController < ApplicationController
     end
   end
 
-  # DELETE /quantities/1
-  # DELETE /quantities/1.json
   def destroy
     @quantity.destroy
     respond_to do |format|

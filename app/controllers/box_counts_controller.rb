@@ -1,28 +1,20 @@
 class BoxCountsController < ApplicationController
   before_action :set_box_count, only: [:show, :edit, :update, :destroy]
 
-  # GET /box_counts
-  # GET /box_counts.json
   def index
     @box_counts = BoxCount.all
   end
 
-  # GET /box_counts/1
-  # GET /box_counts/1.json
   def show
   end
 
-  # GET /box_counts/new
   def new
     @box_count = BoxCount.new
   end
 
-  # GET /box_counts/1/edit
   def edit
   end
 
-  # POST /box_counts
-  # POST /box_counts.json
   def create
     @box_count = BoxCount.new(box_count_params)
 
@@ -37,8 +29,6 @@ class BoxCountsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /box_counts/1
-  # PATCH/PUT /box_counts/1.json
   def update
     respond_to do |format|
       if @box_count.update(box_count_params)
@@ -51,8 +41,6 @@ class BoxCountsController < ApplicationController
     end
   end
 
-  # DELETE /box_counts/1
-  # DELETE /box_counts/1.json
   def destroy
     @box_count.destroy
     respond_to do |format|

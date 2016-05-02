@@ -1,28 +1,20 @@
 class PaperTypesController < ApplicationController
   before_action :set_paper_type, only: [:show, :edit, :update, :destroy]
 
-  # GET /paper_types
-  # GET /paper_types.json
   def index
     @paper_types = PaperType.all
   end
 
-  # GET /paper_types/1
-  # GET /paper_types/1.json
   def show
   end
 
-  # GET /paper_types/new
   def new
     @paper_type = PaperType.new
   end
 
-  # GET /paper_types/1/edit
   def edit
   end
 
-  # POST /paper_types
-  # POST /paper_types.json
   def create
     @paper_type = PaperType.new(paper_type_params)
 
@@ -37,8 +29,6 @@ class PaperTypesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /paper_types/1
-  # PATCH/PUT /paper_types/1.json
   def update
     respond_to do |format|
       if @paper_type.update(paper_type_params)
@@ -51,8 +41,6 @@ class PaperTypesController < ApplicationController
     end
   end
 
-  # DELETE /paper_types/1
-  # DELETE /paper_types/1.json
   def destroy
     @paper_type.destroy
     respond_to do |format|
